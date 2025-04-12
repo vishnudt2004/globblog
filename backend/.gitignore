@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Build output (if applicable)
+dist/
+build/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Environment & Secrets
+.env
+src/config/.env
+certs/
+
+# System files
+.DS_Store
+*.local
+
+# IDE / Editor files
+.vscode/
+.idea/
+
+# Uploaded files directory (Multer will automatically create this folder if it doesn't exist)
+uploads/

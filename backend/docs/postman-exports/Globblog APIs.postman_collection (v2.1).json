@@ -1,0 +1,822 @@
+{
+	"info": {
+		"_postman_id": "6d23d1dd-f246-4ea2-8820-9db93c4d7e10",
+		"name": "Globblog APIs",
+		"description": "# Introduction\n\nGlobblog APIs provide endpoints for authentication, security, blog management, and user management. The API follows RESTful conventions and uses JWT-based authentication managed via HTTP cookies.\n\n## **Authentication & Authorization**\n\n- **Auth Token:** After a successful login or registration, an `authToken` cookie is set in the browser.\n    \n- **Middleware Protection:** `Blog`, `Security`, and `User` APIs require authentication.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29637966"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"\", // (Required). Unique identifier for the user.\r\n    \"name\": \"\", // (Required). Display name of the user.\r\n    \"email\": \"\", // (Required). User’s email for login & verification.\r\n    \"password\": \"\" // (Required). Strong password for account security.\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						},
+						"description": "Registers a new user (requires `username`, `profile name`, `email`, and `password`). After registration, an **email verification link** is sent to the user's email. The user must open this link to verify their account before it expires. If not verified within **24 hours**, the account will be automatically deleted."
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username_email\": \"\", // (Required). Either username or email for login.\r\n    \"password\": \"\" // (Required). User’s password to authenticate.\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Logs in a user (using username/email and password)."
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/auth/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						},
+						"description": "Logs out the user and clears the session."
+					},
+					"response": []
+				},
+				{
+					"name": "Email Verification",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/auth/email-verification/:userId/:token",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"email-verification",
+								":userId",
+								":token"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "",
+									"type": "string",
+									"description": "ID of the user requesting verification."
+								},
+								{
+									"key": "token",
+									"value": "",
+									"type": "string",
+									"description": "Unique verification token sent via email."
+								}
+							]
+						},
+						"description": "Verifies user email with a token. The user must open the verification link sent to their email before it expires. If the link is not used within **24 hours**, the account will be deleted."
+					},
+					"response": []
+				},
+				{
+					"name": "Password Reset Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"\" // The registered email address to receive the reset link.\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/password-reset/request",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"password-reset",
+								"request"
+							]
+						},
+						"description": "Sends a password reset link to the user's email.\n\nOnly for non google oauth2.0 users."
+					},
+					"response": []
+				},
+				{
+					"name": "Password Reset",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"\" // The new password to set for the account.\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/password-reset/:userId/:token",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"password-reset",
+								":userId",
+								":token"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "",
+									"type": "string",
+									"description": "ID of the user requesting password reset."
+								},
+								{
+									"key": "token",
+									"value": "",
+									"type": "string",
+									"description": "Unique verification token sent via email."
+								}
+							]
+						},
+						"description": "Resets the user's password using the token sent to their email."
+					},
+					"response": []
+				},
+				{
+					"name": "Google OAuth2.0 [Read Description]",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/auth/google/ [Read Description]",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"google",
+								" [Read Description]"
+							]
+						},
+						"description": "Initiates Google OAuth2.0 authentication.\n\n**Note:** This route (`/api/auth/google`) cannot be tested in Postman because Google OAuth requires a browser-based authentication flow.\n\n#### **How to Test in a Browser:**\n\n- Open this URL in your browser:  \n    **`{backend_url}/api/auth/google`**\n    \n- Select any of your Google accounts to log in.\n    \n- After successful login, you will be redirected to the **corresponding frontend URL** based on the response.\n    \n- Make sure your **frontend server is running** to see the correct page."
+					},
+					"response": []
+				}
+			],
+			"description": "Handles user authentication, including registration, login, and OAuth-based login."
+		},
+		{
+			"name": "Security",
+			"item": [
+				{
+					"name": "Get Current User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/security/current-user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"security",
+								"current-user"
+							]
+						},
+						"description": "Fetches the currently logged-in user **(from** **`authToken`** **stored in cookies)**."
+					},
+					"response": []
+				},
+				{
+					"name": "Validate Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"\" // Current password for validation.\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/security/validate-password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"security",
+								"validate-password"
+							]
+						},
+						"description": "Checks if the provided password matches the user's password. (extra security for critical actions)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get OTP",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/security/get-otp",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"security",
+								"get-otp"
+							]
+						},
+						"description": "Generates and sends an OTP for verification."
+					},
+					"response": []
+				},
+				{
+					"name": "Verify OTP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"otp\": \"\" // One-time password received via email.\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/security/verify-otp",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"security",
+								"verify-otp"
+							]
+						},
+						"description": "Verifies the OTP (requires `otp` in JSON body). (extra security for critical actions)"
+					},
+					"response": []
+				}
+			],
+			"description": "Handles security-related operations like getting the current user, password validation, and OTP verification.\n\n- **Password validation (**`validate-password`**) and OTP verification (**`verify-otp`**) act as extra security layers** for risky actions such as **updating/deleting blogs** or **updating/deleting users.**"
+		},
+		{
+			"name": "Blog",
+			"item": [
+				{
+					"name": "Get Blogs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/blog",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"blog"
+							],
+							"query": [
+								{
+									"key": "filterType",
+									"value": "",
+									"description": "Leave empty for default blog retrieval. Valid values: latest, trending, search.",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "",
+									"description": "Page number for pagination.",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "",
+									"description": "Number of blogs per page.",
+									"disabled": true
+								},
+								{
+									"key": "dateRange",
+									"value": "",
+									"description": "(Only for trending filter). Format: startDate_endDate.",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "",
+									"description": "(Only for search filter). Comparable fields: readsCount, createdAt.",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "",
+									"description": "(Only for search filter). Sorting order ('asc' or 'desc').",
+									"disabled": true
+								},
+								{
+									"key": "fields",
+									"value": "",
+									"description": "(Only for search filter). Specifies which fields to return. Default: [\"title\", \"summary\", \"tags\"].",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "",
+									"description": "(Only for search filter). Search term.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Retrieves a list of all blogs **with query parameters for filtering and sorting**."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Blog",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/blog/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"blog",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"type": "string",
+									"description": "Blog ID to fetch."
+								}
+							]
+						},
+						"description": "Fetches details of a specific blog by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Blog",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "",
+									"description": "Blog title.",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "",
+									"description": "Full content of the blog.",
+									"type": "text"
+								},
+								{
+									"key": "summary",
+									"value": "",
+									"description": "Short summary of the blog.",
+									"type": "text"
+								},
+								{
+									"key": "tags",
+									"value": "[\"\"]",
+									"description": "Tags related to the blog.",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"description": "Blog cover image. [Optional]",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/blog",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"blog"
+							]
+						},
+						"description": "Creates a new blog (requires title, content, summary, tags, and an optional cover image)."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Blog",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "",
+									"description": "New title.",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "",
+									"description": "Updated content.",
+									"type": "text"
+								},
+								{
+									"key": "summary",
+									"value": "",
+									"description": "New summary.",
+									"type": "text"
+								},
+								{
+									"key": "tags",
+									"value": "[\"\"]",
+									"description": "Updated tags.",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"description": "New cover image. [Optional, Removable]",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/blog/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"blog",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"type": "string",
+									"description": "Blog ID to update."
+								}
+							]
+						},
+						"description": "Updates an existing blog (accepts title, content, summary, tags, and an optional cover image)."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Blog",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/blog/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"blog",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"type": "string",
+									"description": "Blog ID to delete."
+								}
+							]
+						},
+						"description": "Deletes a blog by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Read Count",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"countRead\": true // true to count a read.\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/blog/read-count/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"blog",
+								"read-count",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"type": "string",
+									"description": "Blog ID to update read count."
+								}
+							]
+						},
+						"description": "Increments the read count for a blog.\n\n#### **Read Count Logic (**`PATCH /api/blog/:id`**)**\n\n- Checks for a `read_{blogId}` cookie.\n- If it **doesn't exist**, and `countRead: true` is passed, the read count is incremented.\n- If it **exists**, the read is already counted and won’t be incremented again."
+					},
+					"response": []
+				}
+			],
+			"description": "Handles all blog-related operations, including fetching, creating, updating, and deleting blog posts."
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/user/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								""
+							]
+						},
+						"description": "Retrieves a list of all users."
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/user/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"type": "string",
+									"description": "User ID to fetch."
+								}
+							]
+						},
+						"description": "Fetches details of a specific user."
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "",
+									"description": "New name.",
+									"type": "text"
+								},
+								{
+									"key": "about",
+									"value": "",
+									"description": "Updated bio.",
+									"type": "text"
+								},
+								{
+									"key": "socialMediaProfiles",
+									"value": "{}",
+									"description": "Updated social links.",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"description": "Profile picture. [Optional, Removable]",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/user/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"type": "string",
+									"description": "User ID to update."
+								}
+							]
+						},
+						"description": "Updates user profile (accepts name, about, social media profiles, and an optional profile image)."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/user/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"type": "string",
+									"description": "User ID to delete."
+								}
+							]
+						},
+						"description": "Deletes a user account by ID."
+					},
+					"response": []
+				}
+			],
+			"description": "Manages user profiles, fetching user details, updating profiles, and deleting users."
+		},
+		{
+			"name": "General",
+			"item": [
+				{
+					"name": "Unavailable (Page Not Found / 404)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/unavailable",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"unavailable"
+							]
+						},
+						"description": "Returns a `404 Page Not Found` response for undefined routes.\n\nCan be ANY http request method."
+					},
+					"response": []
+				}
+			],
+			"description": "Handles general API responses."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		}
+	]
+}

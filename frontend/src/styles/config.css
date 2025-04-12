@@ -1,0 +1,77 @@
+body {
+  /* Font Family Stacks */
+  --font-family_light: "Poppins-l", Arial, sans-serif;
+  --font-family_medium: "Poppins-m", Arial, sans-serif;
+
+  /* Predefined Theme Colors */
+  --predefined-theme-color1: #00befe;
+  --predefined-theme-color2: #8a78ff;
+  --predefined-theme-color3: #ff6c6c;
+  --predefined-theme-color4: #ffc96b;
+  --predefined-theme-color5: #89f26f;
+  --predefined-theme-color6: #ffafaa;
+  --predefined-theme-color7: #ffaffa;
+  --predefined-theme-color8: #afaffa;
+  --predefined-theme-color9: #add8e6;
+
+  /* For future use. * warn: don't use these colors for --background-color */
+  --predefined-gradient-color1: linear-gradient(34deg, pink, deeppink);
+  --predefined-gradient-color2: linear-gradient(34deg, #ffa96c, gold);
+
+  /* Basic Colors */
+  --theme-color: var(--predefined-theme-color1);
+  --background-color: #fafafa;
+  --color: #000;
+
+  /* Adapt --theme-color for --background-color */
+  /* --background-color: color-mix(in srgb, #fff, var(--theme-color) 5%); */
+
+  /* Components & Universal Colors */
+  --color2: #333;
+  --color-2d: #0000002d;
+  --nav-menus-color: #000;
+  --nav-brand-color: var(--color);
+  --border-color: #ddd;
+  --input-color: #ddd;
+  --scrollbar-background-color: var(--background-color);
+  --scrollbar-thumb-color: var(--color2);
+  --message-text-color: #fff;
+
+  /* Correctioned colors */
+  /* --border-color: #eee;
+  --input-color: #eee; */
+
+  /* Status Colors */ /* Message, ResultPage, etc. */
+  --success-color: #58d05c;
+  --error-color: #ff3838;
+  --info-color: #2693ed;
+  --warning-color: #ffac2f;
+
+  /* Components z-index */
+  --message-zindex: 4;
+  --header-zindex: 3;
+  --modal-zindex: 3;
+  --pre_loader-zindex: 2;
+  --scroll_down_button-zindex: 2;
+
+  /* Mutations Breakpoint */
+  --navbar-mutation-breakpoint: 768px;
+
+  /* To Prevent Unexpected Behaviours */
+  --padding-top: 65px; /* fixed-top search-bar */
+}
+
+body.dark-mode {
+  --background-color: #1e1e1e;
+  --color: #fff;
+
+  /* Adapt --theme-color for --background-color */
+  /* --background-color: color-mix(in srgb, #000, var(--theme-color) 20%); */
+
+  --color2: #ddd;
+  --color-2d: #ffffff2d;
+
+  --border-color: #555;
+  /* --border-color: #111; */
+  --input-color: #333;
+}

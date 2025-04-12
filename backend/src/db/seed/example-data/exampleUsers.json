@@ -1,0 +1,77 @@
+[
+  {
+    "_id": "61f5e28c91a2b345f8c4f8a1",
+    "username": "johndoe",
+    "email": "johndoe@example.com",
+    "password": "example-password",
+    "profile": {
+      "name": "John Doe",
+      "image": "profile-johndoe.jpg",
+      "about": "Full-stack developer.",
+      "socialMediaProfiles": {}
+    },
+    "verification": {
+      "verified": true
+    }
+  },
+  {
+    "_id": "61f5e28c91a2b345f8c4f8a2",
+    "username": "janedoe",
+    "email": "janedoe@example.com",
+    "password": "example-password",
+    "profile": {
+      "name": "Jane Doe",
+      "image": "profile-janedoe.jpg",
+      "about": "UI/UX Designer & Frontend Dev.",
+      "socialMediaProfiles": {}
+    },
+    "verification": {
+      "verified": true
+    }
+  },
+  {
+    "_id": "61f5e28c91a2b345f8c4f8a3",
+    "username": "alexsmith",
+    "email": "alexsmith@example.com",
+    "password": "example-password",
+    "profile": {
+      "name": "Alex Smith",
+      "image": "profile-alexsmith.jpg",
+      "about": "Cloud Engineer & DevOps Specialist.",
+      "socialMediaProfiles": {}
+    },
+    "verification": {
+      "verified": true
+    }
+  },
+  {
+    "_id": "61f5e28c91a2b345f8c4f8a4",
+    "username": "emilybrown",
+    "email": "emilybrown@example.com",
+    "password": "example-password",
+    "profile": {
+      "name": "Emily Brown",
+      "image": "profile-emilybrown.jpg",
+      "about": "AI/ML Enthusiast.",
+      "socialMediaProfiles": {}
+    },
+    "verification": {
+      "verified": true
+    }
+  },
+  {
+    "_id": "61f5e28c91a2b345f8c4f8a5",
+    "username": "michaellee",
+    "email": "michaellee@example.com",
+    "password": "example-password",
+    "profile": {
+      "name": "Michael Lee",
+      "image": "profile-michaellee.jpg",
+      "about": "Cybersecurity Expert.",
+      "socialMediaProfiles": {}
+    },
+    "verification": {
+      "verified": true
+    }
+  }
+]

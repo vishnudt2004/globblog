@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: clip;
+}
+
+:is(input, textarea, input[type="button"]),
+:is(input, textarea)::placeholder,
+:is(input, textarea) :is(:hover, :active, :focus) {
+  outline: unset;
+  border: unset;
+  background: unset;
+  font-family: var(--font-family_light);
+}
+
+button {
+  outline: unset;
+  border: unset;
+  font-family: var(--font-family_light);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+pre {
+  white-space: pre-wrap;
+  font-family: var(--font-family_light);
+}

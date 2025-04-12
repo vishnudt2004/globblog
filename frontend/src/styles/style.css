@@ -1,0 +1,47 @@
+@import url(font-faces.css);
+@import url(config.css);
+@import url(reset.css);
+
+body {
+  padding-top: var(--padding-top); /* fixed top search-bar */
+  background: var(--background-color);
+  color: var(--color);
+  font-family: var(--font-family_medium);
+}
+
+::selection {
+  background-color: var(--color);
+  color: var(--background-color);
+}
+
+@media (pointer: fine) {
+  /* primary-scrollbar */
+  ::-webkit-scrollbar {
+    width: 0.7rem;
+    height: 0.7rem;
+    background: var(--scrollbar-background-color);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb-color);
+    border: 3px solid var(--scrollbar-background-color);
+    border-radius: 20px;
+  }
+
+  .secondary-scrollbar::-webkit-scrollbar {
+    --size: 8px;
+
+    width: var(--size);
+    height: var(--size);
+    background-clip: padding-box;
+  }
+
+  .secondary-scrollbar::-webkit-scrollbar-thumb {
+    --bg: var(--color2);
+    --radius: 0;
+
+    background: var(--bg);
+    border: 2px solid var(--background-color);
+    border-radius: var(--radius);
+  }
+}
