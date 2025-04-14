@@ -147,6 +147,7 @@ Globblog is a full-featured blog application built with the MERN stack, followin
    Create a `.env` file in the frontend directory (`frontend/.env`) and add:
 
    ```sh
+   VITE_ENV=development/production
    VITE_CLIENT_URL=your_client_url
    VITE_SERVER_URL=your_server_url
    ```
@@ -167,6 +168,8 @@ Globblog is a full-featured blog application built with the MERN stack, followin
    JWT_SECRET=your_jwt_secret
    GOOGLE_CLIENT_ID=your_google_client_id
    GOOGLE_CLIENT_SECRET=your_google_client_secret
+   INITIAL_SEED=true/false
+   INITIAL_SEED_ACTION=WipeUsers/WipeBlogs/SeedUsers/SeedBlogs/WipeAndSeedAll
    ```
 
 5. Optional – HTTPS Setup for Local Development (This setup helps test features that require a secure context (e.g., Google OAuth 2.0))

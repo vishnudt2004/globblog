@@ -20,6 +20,7 @@ import UpdateBlog from "./components/pages/UpdateBlog";
 import UpdateUser from "./components/pages/UpdateUser";
 import AppLifecycle from "./components/miscellaneous/AppLifecycle";
 import ContextProviders from "./components/miscellaneous/ContextProviders";
+import ErrorBoundary from "./components/miscellaneous/ErrorBoundary";
 
 function App() {
   const routes = [
@@ -55,7 +56,7 @@ function App() {
             <Route
               key={`route_${index}`}
               path={path}
-              element={element}
+              element={<ErrorBoundary>{element}</ErrorBoundary>}
               index={index}
             />
           ))}

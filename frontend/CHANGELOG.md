@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file (Frontend).
 
+## [1.0.2] - 2025-04-14
+
+### Changed
+
+- New Feature & Environment Variable
+  - Added `ErrorBoundary` component to handle errors individually (detailed errors in development & user-friendly errors in production). Currently used for each route/page in `App.jsx`
+  - Introduced `VITE_ENV` environment variable, used by `ErrorBoundary` and for future use.
+
 ## [1.0.1] - 2025-04-14
 
 ### Changed
