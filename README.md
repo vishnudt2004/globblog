@@ -18,7 +18,7 @@
 Globblog is a full-featured blog application built with the MERN stack, following atomic design principles for a structured frontend. Initially developed as a showcase project, it is now near-professional grade with potential for public launch.
 
 **Source Code:** [GitHub Repository](https://github.com/vishnudt2004/globblog)
-**Live Demo:** _(Coming soon)_
+**Live Demo:** [Globblog](https://globblog.vercel.app/)
 
 ### 🔹 Highlights
 
@@ -102,7 +102,10 @@ Globblog is a full-featured blog application built with the MERN stack, followin
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB, Mongoose
 - **Authentication:** JWT-based authentication, Google OAuth2.0
-- **Deployment:** _(Coming soon)_
+- **Deployment:**
+  - **Frontend:** GitHub + Vercel
+  - **Backend:** GitHub + Render
+  - **Database:** MongoDB Atlas
 
 ## 🗂 Configuration Files
 
