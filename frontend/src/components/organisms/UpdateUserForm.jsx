@@ -5,54 +5,34 @@ import { useDispatch } from "react-redux";
 import styled from "styled-components";
 
 // Configuration Imports
-import config from "../../config/config";
+import config from "@/config/config";
 
 // Static Imports
-import messages from "../../config/messages";
+import messages from "@/config/messages";
 
-import {
-  // Atoms
-  BorderX,
-  Button,
-  FAIcon,
-  Highlighter,
-
-  // Molecules
-  InfoModal,
-  GeneralPlaceholders,
-  // inputs
-  AboutInput,
-  DiscardButton_enhancer,
-  EmailInput,
-  ProfileImageInput,
-  ProfileNameInput,
-  SocialMediaProfilesInput,
-  SubmitButton,
-  UsernameInput,
-
-  // Organisms
-  Form,
-  ResultPage,
-
-  // Templates
-  HorizontallyCenteredLayout,
-
-  // Contexts
-  useMessage,
-  usePreLoader,
-
-  // APIs
-  userApis,
-
-  // Redux - actions
-  securityActions,
-
-  // Utilities
-  removeElements,
-
-  // Helpers
-  formatUserProfileImageUrl,
-} from "../../config/exports";
+import { BorderX } from "@/components/atoms/Border";
+import Button from "@/components/atoms/Button";
+import FAIcon from "@/components/atoms/FAIcon";
+import Highlighter from "@/components/atoms/Highlighter";
+import InfoModal from "@/components/molecules/InfoModal";
+import GeneralPlaceholders from "@/components/molecules/GeneralPlaceholders";
+import AboutInput from "@/components/molecules/inputs/AboutInput";
+import DiscardButton_enhancer from "@/components/molecules/inputs/DiscardButton";
+import EmailInput from "@/components/molecules/inputs/EmailInput";
+import ProfileImageInput from "@/components/molecules/inputs/ProfileImageInput";
+import ProfileNameInput from "@/components/molecules/inputs/ProfileNameInput";
+import SocialMediaProfilesInput from "@/components/molecules/inputs/SocialMediaProfilesInput";
+import SubmitButton from "@/components/molecules/inputs/SubmitButton";
+import UsernameInput from "@/components/molecules/inputs/UsernameInput";
+import Form from "@/components/molecules/Form";
+import ResultPage from "@/components/organisms/ResultPage";
+import { HorizontallyCenteredLayout } from "@/components/templates/DynamicLayouts";
+import { useMessage } from "@/contexts/MessageContext";
+import { usePreLoader } from "@/contexts/PreLoaderContext";
+import userApis from "@/apis/userApis";
+import securityActions from "@/states/actions/securityActions";
+import { removeElements } from "@/utils/jsUtils";
+import { formatUserProfileImageUrl } from "@/helpers/apiHelpers";
 
 function TipsModal_internal() {
   const { title, tips } = messages.USER.USER_UPDATE_TIPS;

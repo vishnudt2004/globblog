@@ -4,54 +4,34 @@ import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 // Configuration Imports
-import config from "../../config/config";
+import config from "@/config/config";
 
 // Static Imports
-import messages from "../../config/messages";
+import messages from "@/config/messages";
 
-import {
-  // Atoms
-  BorderX,
-  Button,
-  FAIcon,
-  Highlighter,
-
-  // Molecules
-  Form,
-  InfoModal,
-  GeneralPlaceholders,
-  // inputs
-  ContentInput,
-  CoverImageInput,
-  DiscardButton_enhancer,
-  SubmitButton,
-  SummaryInput,
-  TagsInput,
-  TitleInput,
-
-  // Organisms
-  ResultPage,
-
-  // Templates
-  HorizontallyCenteredLayout,
-
-  // Hooks
-  useInterval,
-  useLocalStorage,
-
-  // Contexts
-  useMessage,
-  usePreLoader,
-
-  // APIs
-  blogApis,
-
-  // Utilities
-  filterTruthElements,
-
-  // Helpers
-  formatBlogCoverImageUrl,
-} from "../../config/exports";
+import { BorderX } from "@/components/atoms/Border";
+import Button from "@/components/atoms/Button";
+import FAIcon from "@/components/atoms/FAIcon";
+import Highlighter from "@/components/atoms/Highlighter";
+import Form from "@/components/molecules/Form";
+import InfoModal from "@/components/molecules/InfoModal";
+import GeneralPlaceholders from "@/components/molecules/GeneralPlaceholders";
+import ContentInput from "@/components/molecules/inputs/ContentInput";
+import CoverImageInput from "@/components/molecules/inputs/CoverImageInput";
+import DiscardButton_enhancer from "@/components/molecules/inputs/DiscardButton";
+import SubmitButton from "@/components/molecules/inputs/SubmitButton";
+import SummaryInput from "@/components/molecules/inputs/SummaryInput";
+import TagsInput from "@/components/molecules/inputs/TagsInput";
+import TitleInput from "@/components/molecules/inputs/TitleInput";
+import ResultPage from "@/components/organisms/ResultPage";
+import { HorizontallyCenteredLayout } from "@/components/templates/DynamicLayouts";
+import useInterval from "@/hooks/useInterval";
+import useLocalStorage from "@/hooks/useLocalStorage";
+import { useMessage } from "@/contexts/MessageContext";
+import { usePreLoader } from "@/contexts/PreLoaderContext";
+import blogApis from "@/apis/blogApis";
+import { filterTruthElements } from "@/utils/jsUtils";
+import { formatBlogCoverImageUrl } from "@/helpers/apiHelpers";
 
 function TipsModal_internal() {
   const { title, tips } = messages.BLOG.BLOG_WRITING_TIPS;
@@ -265,7 +245,7 @@ function EditorForm({
       setLSData(autoSaveData);
     },
     autoSaveInterval,
-    type === "create-blog"
+    type === "create-blog",
   );
 
   useEffect(() => {
@@ -276,7 +256,7 @@ function EditorForm({
 
         showMessage(
           "info",
-          "Your work has been successfully restored from local storage."
+          "Your work has been successfully restored from local storage.",
         );
       }
     }

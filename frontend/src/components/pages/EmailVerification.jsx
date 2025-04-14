@@ -2,19 +2,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import {
-  // Atoms
-  VisibilityControl,
-
-  // Organisms
-  ResultPage,
-
-  // Contexts
-  usePreLoader,
-
-  // APIs
-  authApis,
-} from "../../config/exports";
+import VisibilityControl from "@/components/atoms/VisibilityControl";
+import ResultPage from "@/components/organisms/ResultPage";
+import { usePreLoader } from "@/contexts/PreLoaderContext";
+import authApis from "@/apis/authApis";
 
 function EmailVerification() {
   const { userId, token } = useParams();

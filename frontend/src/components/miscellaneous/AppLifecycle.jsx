@@ -4,22 +4,13 @@ import { matchPath, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 // Configuration Imports
-import config from "../../config/config";
+import config from "@/config/config";
 
-import {
-  // Hooks
-  useLocalStorage,
-
-  // Contexts
-  useMessage,
-  usePreLoader,
-
-  // Redux - actions
-  securityActions,
-
-  // Utilities
-  eventBus,
-} from "../../config/exports";
+import useLocalStorage from "@/hooks/useLocalStorage";
+import { useMessage } from "@/contexts/MessageContext";
+import { usePreLoader } from "@/contexts/PreLoaderContext";
+import securityActions from "@/states/actions/securityActions";
+import eventBus from "@/utils/eventBus";
 
 function AppLifecycle() {
   const {
@@ -37,7 +28,7 @@ function AppLifecycle() {
 
   const [alreadyVisited, setFirstVisit] = useLocalStorage(
     "already-visited",
-    false
+    false,
   );
 
   const {
@@ -89,7 +80,7 @@ function AppLifecycle() {
     if (loading_currentUser === true) return;
 
     const protectedRoute = protectedRoutes.some((route) =>
-      matchPath(route, pathname)
+      matchPath(route, pathname),
     );
 
     if (protectedRoute && !currentUser) {

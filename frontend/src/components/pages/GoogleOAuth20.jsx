@@ -1,10 +1,7 @@
 // Node module Imports
 import { useSearchParams } from "react-router-dom";
 
-import {
-  // Organisms
-  ResultPage,
-} from "../../config/exports";
+import ResultPage from "@/components/organisms/ResultPage";
 
 function GoogleOAuth20() {
   const [searchParams] = useSearchParams();

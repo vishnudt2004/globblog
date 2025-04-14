@@ -1,10 +1,7 @@
 // Node module Imports
 import styled from "styled-components";
 
-import {
-  // Atoms
-  FAIcon,
-} from "../../config/exports";
+import FAIcon from "./FAIcon";
 
 const Div_sc = styled.div`
   display: flex;

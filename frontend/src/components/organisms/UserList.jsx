@@ -1,10 +1,7 @@
 // Node module Imports
 import styled from "styled-components";
 
-import {
-  // Molecules
-  UserCard,
-} from "../../config/exports";
+import UserCard from "@/components/molecules/UserCard";
 
 const Div_sc = styled.div`
   display: flex;

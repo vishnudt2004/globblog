@@ -4,46 +4,33 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
 // Configuration Imports
-import config from "../../config/config";
+import config from "@/config/config";
 
 // Static Imports
-import messages from "../../config/messages";
+import messages from "@/config/messages";
 
-import {
-  // Atoms
-  BorderX,
-  Button,
-  FAIcon,
-  Highlighter,
-  Image,
-  MessageMini,
-  ReactQuill_mod,
-  VisibilityControl,
-
-  // Templates
-  HorizontallyCenteredLayout,
-
-  // Molecules
-  GeneralPlaceholders,
-  InfoModal,
-  OrphanBlogPlaceholder,
-  UserCardMini,
-  // actions
-  DeleteBlogAction_enhancer,
-
-  // Organisms
-  OwnerControls,
+import { BorderX } from "@/components/atoms/Border";
+import Button from "@/components/atoms/Button";
+import FAIcon from "@/components/atoms/FAIcon";
+import Highlighter from "@/components/atoms/Highlighter";
+import Image from "@/components/atoms/Image";
+import { MessageMini } from "@/components/atoms/Message";
+import ReactQuill_mod from "@/components/atoms/ReactQuill_mod";
+import VisibilityControl from "@/components/atoms/VisibilityControl";
+import { HorizontallyCenteredLayout } from "@/components/templates/DynamicLayouts";
+import GeneralPlaceholders from "@/components/molecules/GeneralPlaceholders";
+import InfoModal from "@/components/molecules/InfoModal";
+import { OrphanBlogPlaceholder } from "@/components/molecules/Placeholders";
+import { UserCardMini } from "@/components/molecules/UserCard";
+import DeleteBlogAction_enhancer from "@/components/molecules/actions/DeleteBlogAction";
+import OwnerControls, {
   EditButton,
   DeleteButton,
-  ResultPage,
-
-  // Helpers
-  formatBlogCoverImageUrl,
-  BlogReadTracker,
-
-  // Utilities
-  getCookie,
-} from "../../config/exports";
+} from "@/components/organisms/OwnerControls";
+import ResultPage from "@/components/organisms/ResultPage";
+import { formatBlogCoverImageUrl } from "@/helpers/apiHelpers";
+import BlogReadTracker from "@/helpers/BlogReadTracker";
+import { getCookie } from "@/utils/jsUtils";
 
 const { title, additionalTitle, infos } = messages.BLOG.BLOG_READCOUNT_CALCINFO;
 
@@ -114,7 +101,7 @@ function OwnerControls_internal({ owner, setDeletionResult }) {
   const DeleteButton_with_DeleteBlogAction = DeleteBlogAction_enhancer(
     DeleteButton,
     blogId,
-    setDeletionResult
+    setDeletionResult,
   );
 
   return (
@@ -215,7 +202,7 @@ function BlogViewer({ blog, owner, onReadComplete }) {
       undefined, // default options: { wordsPerMinute: 250, requiredReadingTimePercent: 80, requiredScrollPercent: 80 }
       (readCompletionStatus) => {
         onReadComplete(readCompletionStatus);
-      }
+      },
     );
 
     tracker.startTracking();
@@ -302,7 +289,7 @@ function BlogViewer({ blog, owner, onReadComplete }) {
             {blog.tags &&
               blog.tags.map((tag) => {
                 const icon = categories.find(
-                  (cat) => cat.category.toLowerCase() === tag.toLowerCase()
+                  (cat) => cat.category.toLowerCase() === tag.toLowerCase(),
                 )?.icon;
 
                 return (

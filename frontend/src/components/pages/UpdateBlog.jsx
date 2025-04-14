@@ -1,11 +1,8 @@
 // Node module Imports
 import { useParams } from "react-router-dom";
 
-import {
-  // Organisms
-  EditorForm,
-  UserVerification_enhancer,
-} from "../../config/exports";
+import EditorForm from "@/components/organisms/EditorForm";
+import { UserVerification_enhancer } from "@/components/organisms/UserVerification";
 
 function UpdateBlog() {
   const { blogId } = useParams();
@@ -19,7 +16,7 @@ function UpdateBlog() {
         link: `/blog/${blogId}`,
         icon: "newspaper",
       },
-    }
+    },
   );
 
   return <EditorForm_with_UserVerification type="update-blog" />;

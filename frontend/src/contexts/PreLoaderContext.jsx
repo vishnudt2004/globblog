@@ -1,19 +1,16 @@
 // Node module Imports
 import { createContext, useContext, useEffect, useState } from "react";
 
-import {
-  // Atoms
-  Center,
-  PreLoaderMini,
-  VisibilityControl,
-
-  // Utilities
-  setOverflowY,
-} from "../config/exports";
+import Center from "@/components/atoms/Center";
+import { PreLoaderMini } from "@/components/atoms/PreLoader";
+import VisibilityControl from "@/components/atoms/VisibilityControl";
+import { setOverflowY } from "@/utils/cssUtils";
 
 const PreLoaderContext_internal = createContext(() => {});
 
-function PreLoaderProvider({ children }) {
+function PreLoaderProvider(props) {
+  const { children } = props ?? {}; // * Note: avoid destructuring children directly – React might pass undefined during hot reload or rerenders, causing runtime errors
+
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {

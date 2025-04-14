@@ -2,16 +2,9 @@
 import { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 
-import {
-  // Atoms
-  Tabs,
-
-  // Hooks
-  useMediaQuery,
-
-  // Utilities
-  getCssVarValue,
-} from "../../config/exports";
+import Tabs from "@/components/atoms/Tabs";
+import useMediaQuery from "@/hooks/useMediaQuery";
+import { getCssVarValue } from "@/utils/cssUtils";
 
 const Div_sc = styled.div`
   max-width: ${({ $width }) => $width};
@@ -194,7 +187,7 @@ function DynamicLayout_Tabs$TwoColumns({
       setCurrentLayout(
         initialLayout === "tabs"
           ? "two_columns"
-          : initialLayout === "two_columns" && "tabs"
+          : initialLayout === "two_columns" && "tabs",
       );
     } else setCurrentLayout(initialLayout);
   }, [initialLayout, breakpointMatched]);

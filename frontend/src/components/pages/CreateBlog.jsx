@@ -1,7 +1,4 @@
-import {
-  // Organisms
-  EditorForm,
-} from "../../config/exports";
+import EditorForm from "@/components/organisms/EditorForm";
 
 function CreateBlog() {
   return <EditorForm type="create-blog" />;

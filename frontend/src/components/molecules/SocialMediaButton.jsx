@@ -3,23 +3,18 @@ import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 // Configuration Imports
-import config from "../../config/config";
+import config from "@/config/config";
 
-import {
-  // Atoms
-  Button,
-  FAIcon,
-
-  // Utilities
-  checkFAIconLoaded,
-  capitalize,
-} from "../../config/exports";
+import Button from "@/components/atoms/Button";
+import FAIcon from "@/components/atoms/FAIcon";
+import { checkFAIconLoaded } from "@/utils/cssUtils";
+import { capitalize } from "@/utils/jsUtils";
 
 const usualPlatforms = config.UI_ELEMENTS.PREDEFINED_PLATFORMS;
 
 function checkUsualPlatform_internal(platform) {
   const oneOfUsual = usualPlatforms.find(
-    (p) => p.platform.toLowerCase() === platform.toLowerCase()
+    (p) => p.platform.toLowerCase() === platform.toLowerCase(),
   );
 
   const name = oneOfUsual && oneOfUsual.platform;

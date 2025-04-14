@@ -1,8 +1,5 @@
-import {
-  // Atoms
-  InputCharsCounter_enhancer,
-  TextArea,
-} from "../../../config/exports";
+import InputCharsCounter_enhancer from "@/components/atoms/InputCharsCounter";
+import { TextArea } from "@/components/atoms/Input";
 
 const Input_with_InputCharsCounter = InputCharsCounter_enhancer(TextArea);
 

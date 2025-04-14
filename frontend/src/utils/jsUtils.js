@@ -1,11 +1,8 @@
-import {
-  // Utilities
-  eventBus,
-} from "../config/exports";
+import eventBus from "./eventBus";
 
 const fetchData = async (
   url = "", // url
-  options = {} // {options}
+  options = {}, // {options}
 ) => {
   try {
     const response = await fetch(url, options);

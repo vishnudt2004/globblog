@@ -1,15 +1,8 @@
-import {
-  // Atoms
-  BorderX,
-  Center,
-  FAIcon,
-
-  // Templates
-  HorizontallyCenteredLayout,
-
-  // Molecules
-  PageRedirectButton,
-} from "../../config/exports";
+import { BorderX } from "@/components/atoms/Border";
+import Center from "@/components/atoms/Center";
+import FAIcon from "@/components/atoms/FAIcon";
+import { HorizontallyCenteredLayout } from "@/components/templates/DynamicLayouts";
+import PageRedirectButton from "@/components/molecules/PageRedirectButton";
 
 function ResultPage({ type, message, redirectionButton }) {
   return (

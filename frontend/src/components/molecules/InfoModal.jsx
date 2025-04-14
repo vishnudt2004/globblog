@@ -1,7 +1,4 @@
-import {
-  // Atoms
-  Modal,
-} from "../../config/exports";
+import Modal from "@/components/atoms/Modal";
 
 function InfoModal({
   children,

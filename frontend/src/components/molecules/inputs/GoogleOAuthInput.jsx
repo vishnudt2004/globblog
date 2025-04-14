@@ -1,11 +1,6 @@
-import {
-  // Atoms
-  FAIcon,
-  Input,
-
-  // APIs
-  authApis,
-} from "../../../config/exports";
+import FAIcon from "@/components/atoms/FAIcon";
+import Input from "@/components/atoms/Input";
+import authApis from "@/apis/authApis";
 
 function GoogleOAuthInput() {
   return (

@@ -2,14 +2,8 @@
 import { Fragment } from "react";
 import styled from "styled-components";
 
-import {
-  // Atoms
-  BorderX,
-
-  // Molecules
-  BlogCard,
-  BlogCardMini,
-} from "../../config/exports";
+import { BorderX } from "@/components/atoms/Border";
+import BlogCard, { BlogCardMini } from "@/components/molecules/BlogCard";
 
 const Div_sc = styled.div`
   display: flex;
@@ -28,7 +22,7 @@ function BlogList({
       {blogs?.map(
         (
           { _id, title, image, summary, createdAt, author, orphan, readsCount },
-          index
+          index,
         ) => {
           const profile = author?.profile || null;
           return (
@@ -76,7 +70,7 @@ function BlogList({
               )}
             </Fragment>
           );
-        }
+        },
       )}
     </Div_sc>
   );

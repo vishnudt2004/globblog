@@ -2,11 +2,8 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-import {
-  // Atoms
-  Button,
-  FAIcon,
-} from "../../config/exports";
+import Button from "@/components/atoms/Button";
+import FAIcon from "@/components/atoms/FAIcon";
 
 const Div_sc = styled.div`
   width: 400px;

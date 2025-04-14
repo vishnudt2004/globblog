@@ -3,23 +3,14 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 // Configuration Imports
-import config from "../../config/config";
+import config from "@/config/config";
 
-import {
-  // Atoms
-  FAIcon,
-  Image,
-
-  // Molecules
-  SocialMediaIconButton,
-
-  // Utilities
-  cssUnitExtractor,
-  clipText,
-
-  // Helpers
-  formatUserProfileImageUrl,
-} from "../../config/exports";
+import FAIcon from "@/components/atoms/FAIcon";
+import Image from "@/components/atoms/Image";
+import { SocialMediaIconButton } from "@/components/molecules/SocialMediaButton";
+import { cssUnitExtractor } from "@/utils/cssUtils";
+import { clipText } from "@/utils/jsUtils";
+import { formatUserProfileImageUrl } from "@/helpers/apiHelpers";
 
 function Image_mod({ src, ...attr }) {
   return (

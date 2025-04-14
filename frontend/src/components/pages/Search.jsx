@@ -1,7 +1,4 @@
-import {
-  // Organisms
-  SearchViewer,
-} from "../../config/exports";
+import SearchViewer from "@/components/organisms/SearchViewer";
 
 function Search() {
   return <SearchViewer />;

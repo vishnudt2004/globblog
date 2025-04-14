@@ -1,9 +1,6 @@
-import {
-  // Contexts
-  ThemeProvider,
-  MessageProvider,
-  PreLoaderProvider,
-} from "../../config/exports";
+import MessageProvider from "@/contexts/MessageContext";
+import PreLoaderProvider from "@/contexts/PreLoaderContext";
+import ThemeProvider from "@/contexts/ThemeContext";
 
 function ContextProviders({ children }) {
   return (

@@ -1,7 +1,4 @@
-import {
-  // Organisms
-  UserViewer,
-} from "../../config/exports";
+import UserViewer from "@/components/organisms/UserViewer";
 
 function User() {
   return <UserViewer />;

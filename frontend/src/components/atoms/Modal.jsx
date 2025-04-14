@@ -3,16 +3,9 @@ import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import styled, { css } from "styled-components";
 
-import {
-  // Atoms
-  FAIcon,
-  CSSTransition_mod,
-  CSSTEffect,
-
-  // Utilities
-  setOverflowY,
-  colorMix,
-} from "../../config/exports";
+import FAIcon from "./FAIcon";
+import CSSTransition_mod, { CSSTEffect } from "./CSSTransition_mod";
+import { setOverflowY, colorMix } from "@/utils/cssUtils";
 
 const Section_sc = styled.section`
   --modal-border-width: 3px;
@@ -116,7 +109,7 @@ function Modal({
         <div className="secondary-scrollbar content">{children}</div>
       </div>
     </Section_sc>,
-    document.body
+    document.body,
   );
 }
 
@@ -134,7 +127,9 @@ const ModalTEffect = ({ children, visible, ...props }) => {
       .inner {
         opacity: 1;
         transform: translateX(0);
-        transition: opacity 300ms, transform 300ms;
+        transition:
+          opacity 300ms,
+          transform 300ms;
       }
     `,
     exit: css`
@@ -146,7 +141,9 @@ const ModalTEffect = ({ children, visible, ...props }) => {
       .inner {
         opacity: 0;
         transform: scale(0.9);
-        transition: opacity 300ms, transform 300ms;
+        transition:
+          opacity 300ms,
+          transform 300ms;
       }
     `,
   };

@@ -9,6 +9,11 @@ export default ({ mode }) => {
 
   return defineConfig({
     plugins: [react()],
+    resolve: {
+      alias: {
+        "@": "/src",
+      },
+    },
     // server: {
     //   https: {
     //     key: fs.readFileSync("./certs/server.key"),

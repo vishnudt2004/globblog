@@ -1,11 +1,6 @@
-import {
-  // Atoms
-  ToggleButton,
-  FAIcon,
-
-  // Contexts
-  useTheme,
-} from "../../config/exports";
+import ToggleButton from "@/components/atoms/ToggleButton";
+import FAIcon from "@/components/atoms/FAIcon";
+import { useTheme } from "@/contexts/ThemeContext";
 
 function ToggleMode() {
   const { mode, setMode } = useTheme();

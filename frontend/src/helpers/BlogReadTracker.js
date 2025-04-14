@@ -25,12 +25,12 @@ class BlogReadTracker {
     tempElement.innerHTML = this.htmlContent;
 
     const excludeElements = tempElement.querySelectorAll(
-      "a, img, video, audio, iframe, object, embed, script, style"
+      "a, img, video, audio, iframe, object, embed, script, style",
     );
     excludeElements.forEach((el) => el.remove());
 
     const blockLevelElements = tempElement.querySelectorAll(
-      "p, h1, h2, h3, h4, h5, h6, ol, ul, li, div, section, article, aside, blockquote"
+      "p, h1, h2, h3, h4, h5, h6, ol, ul, li, div, section, article, aside, blockquote",
     );
     blockLevelElements.forEach((el) => {
       el.insertAdjacentText("beforebegin", " ");

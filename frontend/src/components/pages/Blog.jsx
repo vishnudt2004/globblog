@@ -4,27 +4,16 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 // Configuration Imports
-import config from "../../config/config";
+import config from "@/config/config";
 
-import {
-  // Atoms
-  VisibilityControl,
-
-  // Organisms
-  BlogViewer,
-  ResultPage,
-
-  // Contexts
-  useMessageMini,
-  usePreLoader,
-
-  // APIs
-  blogApis,
-
-  // Utilities
-  setCookie,
-  durationToMs,
-} from "../../config/exports";
+import VisibilityControl from "@/components/atoms/VisibilityControl";
+import BlogViewer from "@/components/organisms/BlogViewer";
+import ResultPage from "@/components/organisms/ResultPage";
+import { useMessageMini } from "@/contexts/MessageContext";
+import { usePreLoader } from "@/contexts/PreLoaderContext";
+import blogApis from "@/apis/blogApis";
+import { setCookie } from "@/utils/jsUtils";
+import { durationToMs } from "@/utils/timeUtils";
 
 function Blog() {
   const readCountExpireTime = config.BLOG.READ_COUNT_EXPIRE_TIME;
@@ -64,7 +53,7 @@ function Blog() {
 
       showPreLoader(false);
     },
-    [showPreLoader, blogId]
+    [showPreLoader, blogId],
   );
 
   const fetchReadCount = useCallback(async () => {
@@ -78,7 +67,7 @@ function Blog() {
       setCookie(
         `read_client_${blogId}`,
         true,
-        durationToMs(readCountExpireTime)
+        durationToMs(readCountExpireTime),
       );
       fetchBlog({ partialUpdate: "readsCount" });
     }

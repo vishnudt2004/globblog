@@ -3,36 +3,22 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import {
-  // Atoms
-  VisibilityControl,
-
-  // Molecules
-  BorderWithText,
-  Form,
-  PageRedirectLink,
-  // inputs
-  EmailInput,
-  GoogleOAuthInput,
-  PasswordInput,
-  ProfileNameInput,
-  SubmitButton,
-  UsernameInput,
-  UsernameOrEmailInput,
-
-  // Contexts
-  useMessage,
-  usePreLoader,
-
-  // APIs
-  authApis,
-
-  // Redux - actions
-  securityActions,
-
-  // Utilities
-  removeElements,
-} from "../../config/exports";
+import VisibilityControl from "@/components/atoms/VisibilityControl";
+import BorderWithText from "@/components/molecules/BorderWithText";
+import Form from "@/components/molecules/Form";
+import PageRedirectLink from "@/components/molecules/PageRedirectLink";
+import EmailInput from "@/components/molecules/inputs/EmailInput";
+import GoogleOAuthInput from "@/components/molecules/inputs/GoogleOAuthInput";
+import PasswordInput from "@/components/molecules/inputs/PasswordInput";
+import ProfileNameInput from "@/components/molecules/inputs/ProfileNameInput";
+import SubmitButton from "@/components/molecules/inputs/SubmitButton";
+import UsernameInput from "@/components/molecules/inputs/UsernameInput";
+import UsernameOrEmailInput from "@/components/molecules/inputs/UsernameOrEmailInput";
+import { useMessage } from "@/contexts/MessageContext";
+import { usePreLoader } from "@/contexts/PreLoaderContext";
+import authApis from "@/apis/authApis";
+import securityActions from "@/states/actions/securityActions";
+import { removeElements } from "@/utils/jsUtils";
 
 function RegisterInputs_internal({
   onChange,
@@ -118,7 +104,7 @@ function AuthForm({
 
       showMessage(
         "error",
-        "Password and Re-entered Password don't match. Please enter the password correctly."
+        "Password and Re-entered Password don't match. Please enter the password correctly.",
       );
       return;
     }
@@ -127,7 +113,7 @@ function AuthForm({
       formData,
       type === "register"
         ? ["password_reenter", "username_email"]
-        : ["password_reenter", "username", "email", "name"]
+        : ["password_reenter", "username", "email", "name"],
     );
 
     const result =

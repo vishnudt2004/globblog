@@ -2,19 +2,14 @@ import { useState } from "react";
 import styled from "styled-components";
 
 // Configuration Imports
-import config from "../../../config/config";
+import config from "@/config/config";
 
-import {
-  // Atoms
-  Button,
-  FAIcon,
-  GeneralPlaceholders,
-  Modal,
-  SuggestionsInput,
-
-  // Contexts
-  useMessage,
-} from "../../../config/exports";
+import Button from "@/components/atoms/Button";
+import FAIcon from "@/components/atoms/FAIcon";
+import Modal from "@/components/atoms/Modal";
+import GeneralPlaceholders from "@/components/molecules/GeneralPlaceholders";
+import { SuggestionsInput } from "@/components/atoms/Input";
+import { useMessage } from "@/contexts/MessageContext";
 
 const { CATEGORIES } = config.UI_ELEMENTS.BLOG;
 

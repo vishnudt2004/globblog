@@ -1,11 +1,8 @@
 // Node module Imports
 import { useParams } from "react-router-dom";
 
-import {
-  // Organisms
-  UpdateUserForm,
-  UserVerification_enhancer,
-} from "../../config/exports";
+import UpdateUserForm from "@/components/organisms/UpdateUserForm";
+import { UserVerification_enhancer } from "@/components/organisms/UserVerification";
 
 function UpdateUser() {
   const { userId } = useParams();
@@ -19,7 +16,7 @@ function UpdateUser() {
         link: `/user/${userId}`,
         icon: "user-tie",
       },
-    }
+    },
   );
 
   return <UpdateUserForm_with_UserVerification />;

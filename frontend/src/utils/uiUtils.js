@@ -1,4 +1,4 @@
-import { chooseRandom } from "../config/exports";
+import { chooseRandom } from "./jsUtils";
 
 const fancyColors = [
   "deeppink",

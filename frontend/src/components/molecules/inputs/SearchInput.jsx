@@ -1,11 +1,8 @@
 import styled from "styled-components";
 
-import {
-  // Atoms
-  CircleButton,
-  FAIcon,
-  Input,
-} from "../../../config/exports";
+import { CircleButton } from "@/components/atoms/Button";
+import FAIcon from "@/components/atoms/FAIcon";
+import Input from "@/components/atoms/Input";
 
 const Div_sc = styled.div`
   width: 100%;

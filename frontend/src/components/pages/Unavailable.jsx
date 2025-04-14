@@ -1,17 +1,10 @@
 // Static Imports
-import messages from "../../config/messages";
+import messages from "@/config/messages";
 
-import {
-  // Atoms
-  BorderX,
-  Center,
-
-  // Molecules
-  PageRedirectButton,
-
-  // Templates
-  HorizontallyCenteredLayout,
-} from "../../config/exports";
+import { BorderX } from "@/components/atoms/Border";
+import Center from "@/components/atoms/Center";
+import PageRedirectButton from "@/components/molecules/PageRedirectButton";
+import { HorizontallyCenteredLayout } from "@/components/templates/DynamicLayouts";
 
 function Unavailable() {
   const {

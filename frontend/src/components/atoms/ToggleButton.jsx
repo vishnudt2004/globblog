@@ -1,10 +1,7 @@
 // Node module Imports
 import styled from "styled-components";
 
-import {
-  // Utilities
-  cssUnitExtractor,
-} from "../../utils/cssUtils";
+import { cssUnitExtractor } from "@/utils/cssUtils";
 
 const Div_sc = styled.div`
   width: ${({ $size }) => {

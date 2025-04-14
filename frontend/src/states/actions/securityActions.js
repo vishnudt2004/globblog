@@ -1,10 +1,5 @@
-import {
-  // APIs
-  securityApis,
-
-  // Redux - reducers
-  securityReducers,
-} from "../../config/exports";
+import securityApis from "@/apis/securityApis";
+import { securityReducers } from "@/states/slices/securitySlice";
 
 const getCurrentUser = () => async (dispatch) => {
   dispatch(securityReducers.request());

@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 
 // Main Imports
 import App from "./App";
-import { store } from "./config/exports";
+import store from "./states/store";
 
 // Style Sheets
 import "./styles/style.css";
@@ -17,5 +17,5 @@ createRoot(document.getElementById("root")).render(
     >
       <App />
     </BrowserRouter>
-  </ReduxProvider>
+  </ReduxProvider>,
 );

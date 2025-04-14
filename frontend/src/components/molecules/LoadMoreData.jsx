@@ -1,11 +1,8 @@
 // Node module Imports
 import InfiniteScroll from "react-infinite-scroll-component";
 
-import {
-  // Atoms
-  Button,
-  FAIcon,
-} from "../../config/exports";
+import Button from "@/components/atoms/Button";
+import FAIcon from "@/components/atoms/FAIcon";
 
 function LoadMoreData({
   method = "scroll", // scroll | button

@@ -3,35 +3,23 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
 // Configuration Imports
-import config from "../../config/config";
+import config from "@/config/config";
 
-import {
-  // Atoms
-  Button,
-  Center,
-  CountDown,
-  FAIcon,
-  Modal,
-  PreLoaderMini,
-
-  // Molecules
-  Form,
-  PageRedirectButton,
-  PageRedirectLink,
-  // inputs
-  OTPInput,
-  PasswordInput,
-  SubmitButton,
-
-  // Contexts
-  useMessage,
-
-  // APIs
-  securityApis,
-
-  // Utilities
-  durationToMs,
-} from "../../config/exports";
+import Button from "@/components/atoms/Button";
+import Center from "@/components/atoms/Center";
+import CountDown from "@/components/atoms/CountDown";
+import FAIcon from "@/components/atoms/FAIcon";
+import Modal from "@/components/atoms/Modal";
+import { PreLoaderMini } from "@/components/atoms/PreLoader";
+import Form from "@/components/molecules/Form";
+import PageRedirectButton from "@/components/molecules/PageRedirectButton";
+import PageRedirectLink from "@/components/molecules/PageRedirectLink";
+import OTPInput from "@/components/molecules/inputs/OTPInput";
+import PasswordInput from "@/components/molecules/inputs/PasswordInput";
+import SubmitButton from "@/components/molecules/inputs/SubmitButton";
+import { useMessage } from "@/contexts/MessageContext";
+import securityApis from "@/apis/securityApis";
+import { durationToMs } from "@/utils/timeUtils";
 
 function OTPInput_mod({ countDownRef, value, onChange, resendOTP }) {
   const { OTP_LENGTH, OTP_EXPIRETIME } = config.UI_ELEMENTS.USER_VERIFICATION;
@@ -42,7 +30,7 @@ function OTPInput_mod({ countDownRef, value, onChange, resendOTP }) {
     if (countDownRef.current) {
       const timer = setTimeout(
         () => setDisableResent(false),
-        durationToMs(OTP_EXPIRETIME)
+        durationToMs(OTP_EXPIRETIME),
       );
       return () => clearTimeout(timer);
     }
@@ -261,7 +249,7 @@ function CancellationComponent({
 function UserVerification_enhancer(
   Component,
   cancellationFallback = {},
-  initialVisible = true
+  initialVisible = true,
 ) {
   const {
     CancelComponent, // custom cancellation component (you may can't set continue-action button)

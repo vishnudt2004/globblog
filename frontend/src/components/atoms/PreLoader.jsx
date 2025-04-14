@@ -1,14 +1,9 @@
 // Node module Imports
 import styled from "styled-components";
 
-import {
-  // Atoms
-  Center,
-  FAIcon,
-
-  // Utilities
-  cssUnitExtractor,
-} from "../../config/exports";
+import Center from "./Center";
+import FAIcon from "./FAIcon";
+import { cssUnitExtractor } from "@/utils/cssUtils";
 
 const Div_sc = styled.div`
   display: flex;

@@ -1,7 +1,4 @@
-import {
-  // Organisms
-  PasswordResetForm,
-} from "../../config/exports";
+import PasswordResetForm from "@/components/organisms/PasswordResetForm";
 
 function PasswordReset() {
   return <PasswordResetForm type="reset" />;

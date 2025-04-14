@@ -1,12 +1,7 @@
-import {
-  // Atoms
-  Center,
-  FAIcon,
-
-  // Molecules
-  BorderWithText,
-  GeneralPlaceholders,
-} from "../../config/exports";
+import Center from "@/components/atoms/Center";
+import FAIcon from "@/components/atoms/FAIcon";
+import BorderWithText from "@/components/molecules/BorderWithText";
+import GeneralPlaceholders from "@/components/molecules/GeneralPlaceholders";
 
 function OrphanBlogPlaceholder() {
   return (

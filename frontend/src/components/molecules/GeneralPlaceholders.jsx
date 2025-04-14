@@ -1,8 +1,5 @@
-import {
-  // Atoms
-  Button,
-  FAIcon,
-} from "../../config/exports";
+import Button from "@/components/atoms/Button";
+import FAIcon from "@/components/atoms/FAIcon";
 
 function Text({ children, icon, ...attr }) {
   return (

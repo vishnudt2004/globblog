@@ -3,16 +3,11 @@ import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 // Configuration Imports
-import config from "../../../config/config";
+import config from "@/config/config";
 
-import {
-  // Atoms
-  FAIcon,
-  Image,
-
-  // Contexts
-  useMessage,
-} from "../../../config/exports";
+import FAIcon from "@/components/atoms/FAIcon";
+import Image from "@/components/atoms/Image";
+import { useMessage } from "@/contexts/MessageContext";
 
 const Figure_sc = styled.figure`
   width: fit-content;
@@ -99,7 +94,7 @@ function ProfileImageInput({ value, onFileChange }) {
       if (file.size > maxSize) {
         showMessage(
           "error",
-          `Maximum File Size: ${maxSize / (1024 * 1024)} MB`
+          `Maximum File Size: ${maxSize / (1024 * 1024)} MB`,
         );
         if (fileInputRef.current) {
           fileInputRef.current.value = "";

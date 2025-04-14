@@ -1,8 +1,5 @@
-import {
-  // Atoms
-  FAIcon,
-  Input,
-} from "../../../config/exports";
+import FAIcon from "@/components/atoms/FAIcon";
+import Input from "@/components/atoms/Input";
 
 function UsernameOrEmailInput(attr) {
   return (

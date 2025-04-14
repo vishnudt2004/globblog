@@ -1,10 +1,7 @@
-import {
-  // Atoms
-  SVGBackground,
-} from "../../config/exports";
+import SVGBackground from "@/components/atoms/SVGBackground";
 
 // Other Imports
-import landingBg from "../../assets/images/landing-bg.svg";
+import landingBg from "@/assets/images/landing-bg.svg";
 
 function LandingPageBG(attr) {
   return <SVGBackground type="fixed" imageUrl={landingBg} {...attr} />;

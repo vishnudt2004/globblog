@@ -2,10 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
-import {
-  // Utilities
-  colorMix,
-} from "../../config/exports";
+import { colorMix } from "@/utils/cssUtils";
 
 const Div_sc = styled.div`
   width: ${({ width }) => width};
@@ -25,7 +22,9 @@ const Div_sc = styled.div`
   textarea,
   span {
     background: var(--input-color);
-    transition: background 0.4s, box-shadow 0.4s;
+    transition:
+      background 0.4s,
+      box-shadow 0.4s;
   }
 
   input,
@@ -197,7 +196,9 @@ const Div_sc2 = styled.div`
     overflow: auto;
 
     li {
-      transition: background 0.4s, padding 0.1s;
+      transition:
+        background 0.4s,
+        padding 0.1s;
 
       &:hover {
         background: var(--color-2d);
@@ -216,7 +217,7 @@ function SuggestionsInput({ suggestions, value, onChange, ...attr }) {
   useEffect(() => {
     if (suggestions && value.length > 0) {
       const filtered = suggestions.filter((suggestion) =>
-        suggestion.toLowerCase().includes(value.toLowerCase())
+        suggestion.toLowerCase().includes(value.toLowerCase()),
       );
 
       setFilteredSuggestions(filtered);

@@ -1,8 +1,5 @@
-import {
-  // Atoms
-  Input,
-  InputCharsCounter_enhancer,
-} from "../../../config/exports";
+import Input from "@/components/atoms/Input";
+import InputCharsCounter_enhancer from "@/components/atoms/InputCharsCounter";
 
 const Input_with_InputCharsCounter = InputCharsCounter_enhancer(Input);
 

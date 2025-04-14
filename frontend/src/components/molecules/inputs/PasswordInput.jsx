@@ -2,14 +2,9 @@
 import styled from "styled-components";
 import { useState } from "react";
 
-import {
-  // Atoms
-  FAIcon,
-  Input,
-
-  // Utilities
-  colorMix,
-} from "../../../config/exports";
+import FAIcon from "@/components/atoms/FAIcon";
+import Input from "@/components/atoms/Input";
+import { colorMix } from "@/utils/cssUtils";
 
 const Div_sc = styled.div`
   display: flex;

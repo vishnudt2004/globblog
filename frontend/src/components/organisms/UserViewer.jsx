@@ -4,36 +4,27 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
+import { PreLoaderMini } from "@/components/atoms/PreLoader";
+import GeneralPlaceholders from "@/components/molecules/GeneralPlaceholders";
+import LoadMoreData from "@/components/molecules/LoadMoreData";
 import {
-  // Atoms
-  PreLoaderMini,
-
-  // Molecules
-  GeneralPlaceholders,
-  LoadMoreData,
   NoResultsFoundPlaceholder,
   NoMoreResultsPlaceholder,
-  UserDetailedCard,
-  // actions
-  DeleteUserAction_enhancer,
-
-  // Organisms
-  BlogList,
-  OwnerControls,
+} from "@/components/molecules/Placeholders";
+import UserDetailedCard from "@/components/molecules/UserCard";
+import DeleteUserAction_enhancer from "@/components/molecules/actions/DeleteUserAction";
+import BlogList from "@/components/organisms/BlogList";
+import OwnerControls, {
   EditButton,
   DeleteButton,
-  ResultPage,
-
-  // Templates
+} from "@/components/organisms/OwnerControls";
+import ResultPage from "@/components/organisms/ResultPage";
+import {
   HorizontallyCenteredLayout,
   DynamicLayout_Tabs$TwoColumns,
-
-  // Contexts
-  usePreLoader,
-
-  // APIs
-  userApis,
-} from "../../config/exports";
+} from "@/components/templates/DynamicLayouts";
+import { usePreLoader } from "@/contexts/PreLoaderContext";
+import userApis from "@/apis/userApis";
 
 function OwnerControls_internal({ owner, setDeletionResult }) {
   const { userId } = useParams();
@@ -41,7 +32,7 @@ function OwnerControls_internal({ owner, setDeletionResult }) {
   const DeleteButton_with_DeleteUserAction = DeleteUserAction_enhancer(
     DeleteButton,
     userId,
-    setDeletionResult
+    setDeletionResult,
   );
 
   return (
@@ -176,7 +167,7 @@ function UserViewer() {
         noResult: apiBlogsResult?.blogsCount === 0,
       }));
     },
-    [userId, userResult]
+    [userId, userResult],
   );
 
   const fetchNextPage = useCallback(async () => {

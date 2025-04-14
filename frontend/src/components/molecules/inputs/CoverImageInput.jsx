@@ -4,13 +4,10 @@ import styled from "styled-components";
 import { useDropzone } from "react-dropzone";
 
 // Configuration Imports
-import config from "../../../config/config";
+import config from "@/config/config";
 
-import {
-  // Atoms
-  Button,
-  FAIcon,
-} from "../../../config/exports";
+import Button from "@/components/atoms/Button";
+import FAIcon from "@/components/atoms/FAIcon";
 
 const Section_sc = styled.section`
   aspect-ratio: 16 / 9;
@@ -130,7 +127,7 @@ function CoverImageInput({ value, onFileChange }) {
       const file = acceptedFiles[0];
       onFileChange(file);
     },
-    [onFileChange]
+    [onFileChange],
   );
 
   const { getRootProps, getInputProps, isDragActive, isDragAccept } =

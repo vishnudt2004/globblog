@@ -6,11 +6,8 @@ import {
 } from "@reduxjs/toolkit";
 import { thunk } from "redux-thunk";
 
-import {
-  // Redux - slices
-  blogStates,
-  securityStates,
-} from "../config/exports";
+import blogStates from "@/states/slices/blogSlice";
+import securityStates from "@/states/slices/securitySlice";
 
 const reducer = combineReducers({
   blog: blogStates,

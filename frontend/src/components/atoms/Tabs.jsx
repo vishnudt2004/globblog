@@ -3,10 +3,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useSwipeable } from "react-swipeable";
 
-import {
-  // Utilities
-  getCssVarValue,
-} from "../../config/exports";
+import { getCssVarValue } from "@/utils/cssUtils";
 
 const Div_sc = styled.div`
   --tab-header-bottom-border-height: 2px;
@@ -66,7 +63,9 @@ const Div_sc = styled.div`
         right: 0;
         bottom: 0;
         left: 0;
-        transition: width 0.4s, background 0.4s;
+        transition:
+          width 0.4s,
+          background 0.4s;
       }
 
       &.active {
@@ -89,7 +88,8 @@ const Div_sc = styled.div`
     min-height: 75vh; // Prevents swipe issues (even with less content)
   }
 
-  @media screen and (max-width: ${() => getCssVarValue("--navbar-mutation-breakpoint")}) {
+  @media screen and (max-width: ${() =>
+      getCssVarValue("--navbar-mutation-breakpoint")}) {
     .tab-headers {
       top: var(--padding-top); // fixed-top search-bar
     }
@@ -147,7 +147,7 @@ function Tabs({ tabs, initTabNumber = 1 }) {
             <div key={id} className="tab-panel">
               {element}
             </div>
-          ) : null
+          ) : null,
         )}
       </div>
     </Div_sc>

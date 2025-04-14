@@ -2,30 +2,20 @@
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
+import { BorderX } from "@/components/atoms/Border";
+import Highlighter from "@/components/atoms/Highlighter";
+import { PreLoaderMini } from "@/components/atoms/PreLoader";
+import ScrollDownButton from "@/components/atoms/ScrollDownButton";
+import GeneralPlaceholders from "@/components/molecules/GeneralPlaceholders";
+import LoadMoreData from "@/components/molecules/LoadMoreData";
 import {
-  // Atoms
-  BorderX,
-  Highlighter,
-  PreLoaderMini,
-  ScrollDownButton,
-
-  // Molecules
-  GeneralPlaceholders,
-  LoadMoreData,
   NoMoreResultsPlaceholder,
   NoResultsFoundPlaceholder,
-  // inputs
-  SearchInput,
-
-  // Organisms
-  BlogList,
-
-  // Templates
-  HorizontallyCenteredLayout,
-
-  // APIs
-  blogApis,
-} from "../../config/exports";
+} from "@/components/molecules/Placeholders";
+import SearchInput from "@/components/molecules/inputs/SearchInput";
+import BlogList from "@/components/organisms/BlogList";
+import { HorizontallyCenteredLayout } from "@/components/templates/DynamicLayouts";
+import blogApis from "@/apis/blogApis";
 
 function SearchViewer() {
   const navigate = useNavigate();
@@ -98,7 +88,7 @@ function SearchViewer() {
         };
       });
     },
-    [searchInput]
+    [searchInput],
   );
 
   const fetchNextPage = useCallback(async () => {

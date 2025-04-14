@@ -1,10 +1,7 @@
 // Configuration Imports
-import { constants } from "../config/config";
+import { constants } from "@/config/config";
 
-import {
-  // Utilities
-  fetchData,
-} from "../config/exports";
+import { fetchData } from "@/utils/jsUtils";
 
 const baseUrl = `${constants.serverUrl}/api/auth/`;
 

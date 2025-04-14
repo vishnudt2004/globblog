@@ -2,19 +2,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
-import {
-  // Organisms
-  UserVerification,
-
-  // Contexts
-  usePreLoader,
-
-  // APIs
-  userApis,
-
-  // Redux - reducers
-  securityReducers,
-} from "../../../config/exports";
+import UserVerification from "@/components/organisms/UserVerification";
+import usePreLoader from "@/contexts/PreLoaderContext";
+import userApis from "@/apis/userApis";
+import { securityReducers } from "@/states/slices/securitySlice";
 
 function DeleteUserAction_enhancer(Component, userId, setResult) {
   const Component_enhanced = (props) => {

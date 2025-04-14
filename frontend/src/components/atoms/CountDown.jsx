@@ -1,13 +1,8 @@
 // Node module Imports
 import { forwardRef, useEffect, useImperativeHandle, useState } from "react";
 
-import {
-  // Hooks
-  useInterval,
-
-  // Utilities
-  durationToMs,
-} from "../../config/exports";
+import useInterval from "@/hooks/useInterval";
+import { durationToMs } from "@/utils/timeUtils";
 
 const formatTime_internal = (seconds) => {
   const mins = Math.floor(seconds / 60);
@@ -31,7 +26,7 @@ const CountDown = forwardRef(function ({ countDown, start = true }, ref) {
       }
     },
     1000,
-    startCD
+    startCD,
   );
 
   useEffect(() => {

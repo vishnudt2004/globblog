@@ -2,20 +2,14 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import {
-  // Atoms
-  Anchor,
-  BorderX,
-  FAIcon,
-
-  // Molecules
-  LogoMini,
-  NavMenu,
-  SocialMediaIconButton,
-  ToggleModeCircle,
-  // constant
-  landingPageBGAttribution,
-} from "../../config/exports";
+import Anchor from "@/components/atoms/Anchor";
+import { BorderX } from "@/components/atoms/Border";
+import FAIcon from "@/components/atoms/FAIcon";
+import { LogoMini } from "@/components/molecules/Logo";
+import NavMenu from "@/components/molecules/NavMenu";
+import { SocialMediaIconButton } from "@/components/molecules/SocialMediaButton";
+import { ToggleModeCircle } from "@/components/molecules/ToggleMode";
+import { attribution as landingPageBGAttribution } from "@/components/molecules/LandingPageBG";
 
 function NavMenu_mod({ icon, children, link }) {
   return (

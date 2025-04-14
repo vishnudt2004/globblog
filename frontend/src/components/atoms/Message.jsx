@@ -4,15 +4,11 @@ import { createPortal } from "react-dom";
 import styled, { css } from "styled-components";
 
 // Configuration Imports
-import config from "../../config/config";
+import config from "@/config/config";
 
-import {
-  // Atoms
-  BorderX,
-  CSSTEffect,
-  CSSTransition_mod,
-  FAIcon,
-} from "../../config/exports";
+import { BorderX } from "./Border";
+import CSSTransition_mod, { CSSTEffect } from "./CSSTransition_mod";
+import FAIcon from "./FAIcon";
 
 const Div_sc = styled.div`
   --vertical-edges-gap: 5rem;
@@ -213,7 +209,7 @@ const Message = ({
         )}
       </span>
     </Div_sc>,
-    document.body
+    document.body,
   );
 };
 
@@ -240,7 +236,7 @@ function MessageMini({
     <Div_sc className={`secondary ${position}`} $zIndex={zIndex}>
       {children}
     </Div_sc>,
-    document.body
+    document.body,
   );
 }
 
@@ -255,7 +251,9 @@ const MessageTEffect = ({ children, visible, ...props }) => {
     enterActive: css`
       opacity: 1;
       transform: translateX(0);
-      transition: opacity 300ms, transform 300ms;
+      transition:
+        opacity 300ms,
+        transform 300ms;
     `,
     exit: css`
       opacity: 1;
@@ -263,7 +261,9 @@ const MessageTEffect = ({ children, visible, ...props }) => {
     exitActive: css`
       opacity: 0;
       transform: scale(0.9);
-      transition: opacity 300ms, transform 300ms;
+      transition:
+        opacity 300ms,
+        transform 300ms;
     `,
   };
 
@@ -295,7 +295,9 @@ const MessageMiniTEffect = ({ children, visible, ...props }) => {
     enterActive: css`
       opacity: 1;
       transform: translateY(0);
-      transition: opacity 300ms, transform 300ms;
+      transition:
+        opacity 300ms,
+        transform 300ms;
     `,
     exit: css`
       opacity: 1;
@@ -303,7 +305,9 @@ const MessageMiniTEffect = ({ children, visible, ...props }) => {
     exitActive: css`
       opacity: 0;
       transform: translateY(-20px);
-      transition: opacity 300ms, transform 300ms;
+      transition:
+        opacity 300ms,
+        transform 300ms;
     `,
   };
 

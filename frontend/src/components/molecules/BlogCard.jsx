@@ -4,24 +4,15 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 // Configuration Imports
-import config from "../../config/config";
+import config from "@/config/config";
 
-import {
-  // Atoms
-  FAIcon,
-  Image,
-
-  // Molecules
-  OrphanBlogPlaceholder,
-  UserCardMini,
-
-  // Utilities
-  clipText,
-  multipleMediaQueries,
-
-  // Helpers
-  formatBlogCoverImageUrl,
-} from "../../config/exports";
+import FAIcon from "@/components/atoms/FAIcon";
+import Image from "@/components/atoms/Image";
+import { OrphanBlogPlaceholder } from "./Placeholders";
+import { UserCardMini } from "./UserCard";
+import { clipText } from "@/utils/jsUtils";
+import { multipleMediaQueries } from "@/utils/cssUtils";
+import { formatBlogCoverImageUrl } from "@/helpers/apiHelpers";
 
 const Div_sc = styled.div`
   width: 100%;
@@ -130,7 +121,7 @@ const Div_sc = styled.div`
           width: 100% !important;
           height: 230px;
         }
-      `
+      `,
     )}/* @media screen and (max-width: 480px) {
     .published-info {
       flex-direction: column-reverse;

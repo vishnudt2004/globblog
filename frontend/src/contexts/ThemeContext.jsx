@@ -1,10 +1,7 @@
 // Node module Imports
 import { createContext, useContext, useEffect } from "react";
 
-import {
-  // Contexts
-  useLocalStorage,
-} from "../config/exports";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 const ThemeContext_internal = createContext({
   mode: "light",

@@ -1,11 +1,7 @@
 // Node module Imports
 import { createContext, useContext, useState, useCallback } from "react";
 
-import {
-  // Atoms
-  Message,
-  MessageMini,
-} from "../config/exports";
+import Message, { MessageMini } from "@/components/atoms/Message";
 
 const MessageContext_internal = createContext(() => {});
 const MessageMiniContext_internal = createContext(() => {});
@@ -25,7 +21,7 @@ function MessageProvider({ children }) {
       setOptions({ duration, position });
       setVisible(true);
     },
-    []
+    [],
   );
 
   const onExit = () => {
@@ -69,7 +65,7 @@ function MessageMiniProvider({ children }) {
       setOptions({ duration, position });
       setVisible(true);
     },
-    []
+    [],
   );
 
   const onExit = () => {

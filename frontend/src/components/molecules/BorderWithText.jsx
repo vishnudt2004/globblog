@@ -1,7 +1,4 @@
-import {
-  // Atoms
-  BorderX,
-} from "../../config/exports";
+import { BorderX } from "@/components/atoms/Border";
 
 function BorderWithText({
   children,

@@ -4,21 +4,16 @@ import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 // Configuration Imports
-import config from "../../config/config";
+import config from "@/config/config";
 
-import {
-  // Atoms
-  BorderX,
-  Button,
-  Center,
-  FAIcon,
-  Image,
-  ScrollDownButton,
-
-  // Molecules
-  LandingPageBG,
-  Logo,
-} from "../../config/exports";
+import { BorderX } from "@/components/atoms/Border";
+import Button from "@/components/atoms/Button";
+import Center from "@/components/atoms/Center";
+import FAIcon from "@/components/atoms/FAIcon";
+import Image from "@/components/atoms/Image";
+import ScrollDownButton from "@/components/atoms/ScrollDownButton";
+import LandingPageBG from "@/components/molecules/LandingPageBG";
+import Logo from "@/components/molecules/Logo";
 
 function Part_internal({ children }) {
   return children;

@@ -2,29 +2,17 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-import {
-  // Atoms
-  BorderX,
-  VisibilityControl,
-
-  // Molecules
-  Form,
-  PageRedirectButton,
-  // inputs
-  EmailInput,
-  PasswordInput,
-  SubmitButton,
-
-  // Contexts
-  useMessage,
-  usePreLoader,
-
-  // APIs
-  authApis,
-
-  // Utilities
-  removeElements,
-} from "../../config/exports";
+import { BorderX } from "@/components/atoms/Border";
+import VisibilityControl from "@/components/atoms/VisibilityControl";
+import Form from "@/components/molecules/Form";
+import PageRedirectButton from "@/components/molecules/PageRedirectButton";
+import EmailInput from "@/components/molecules/inputs/EmailInput";
+import PasswordInput from "@/components/molecules/inputs/PasswordInput";
+import SubmitButton from "@/components/molecules/inputs/SubmitButton";
+import { useMessage } from "@/contexts/MessageContext";
+import { usePreLoader } from "@/contexts/PreLoaderContext";
+import authApis from "@/apis/authApis";
+import { removeElements } from "@/utils/jsUtils";
 
 function RequestInputs_internal({ onChange, formData: { email } }) {
   return <EmailInput onChange={onChange} value={email} />;
@@ -74,14 +62,14 @@ function PasswordResetForm({
 
       showMessage(
         "error",
-        "Password and Re-entered Password don't match. Please enter the password correctly."
+        "Password and Re-entered Password don't match. Please enter the password correctly.",
       );
       return;
     }
 
     const formDataTrimmed = removeElements(
       formData,
-      type === "request" ? ["password", "password_reenter"] : ["email"]
+      type === "request" ? ["password", "password_reenter"] : ["email"],
     );
 
     const result =

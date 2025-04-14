@@ -5,24 +5,15 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import useDetectScroll from "@smakss/react-scroll-direction";
 
-import {
-  // Atoms
-  Button,
-  FAIcon,
-
-  // Molecules
-  LogoMini,
-  Navbar,
-  NavMenu,
-  UserCardMini,
-  ToggleMode,
-  // actions
-  LogoutAction_enhancer,
-
-  // Utilities
-  getCssVarValue,
-  cssUnitExtractor,
-} from "../../config/exports";
+import Button from "@/components/atoms/Button";
+import FAIcon from "@/components/atoms/FAIcon";
+import { LogoMini } from "@/components/molecules/Logo";
+import Navbar from "@/components/molecules/Navbar";
+import NavMenu from "@/components/molecules/NavMenu";
+import { UserCardMini } from "@/components/molecules/UserCard";
+import ToggleMode from "@/components/molecules/ToggleMode";
+import LogoutAction_enhancer from "@/components/molecules/actions/LogoutAction";
+import { getCssVarValue, cssUnitExtractor } from "@/utils/cssUtils";
 
 // prettier-ignore
 const Section_sc = styled.section`
@@ -53,7 +44,7 @@ function Header() {
   const currentUser = useSelector((state) => state.security.currentUser);
 
   const mutationBreakpoint = cssUnitExtractor(
-    getCssVarValue("--navbar-mutation-breakpoint")
+    getCssVarValue("--navbar-mutation-breakpoint"),
   )?.value;
   const screenBelowBreakpoint = window.innerWidth <= mutationBreakpoint;
 

@@ -1,10 +1,7 @@
 // Static Imports
-import messages from "../../config/messages";
+import messages from "@/config/messages";
 
-import {
-  // Organisms
-  ResultPage,
-} from "../../config/exports";
+import ResultPage from "@/components/organisms/ResultPage";
 
 function Unauthorized() {
   const {

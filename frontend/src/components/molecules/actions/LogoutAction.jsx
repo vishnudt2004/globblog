@@ -2,17 +2,10 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import {
-  // Contexts
-  useMessage,
-  usePreLoader,
-
-  // APIs
-  authApis,
-
-  // Redux - reducers
-  securityReducers,
-} from "../../../config/exports";
+import { useMessage } from "@/contexts/MessageContext";
+import { usePreLoader } from "@/contexts/PreLoaderContext";
+import authApis from "@/apis/authApis";
+import { securityReducers } from "@/states/slices/securitySlice";
 
 function LogoutAction_enhancer(Component) {
   const Component_enhanced = (props) => {

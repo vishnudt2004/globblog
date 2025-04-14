@@ -1,5 +1,5 @@
 // Configuration Imports
-import config, { constants } from "../config/config";
+import config, { constants } from "@/config/config";
 
 const { POSTS_CREATEDAT$UPDATEDAT_FORMATOPTIONS: postsDatesOptions } =
   config.UI_ELEMENTS.BLOG;

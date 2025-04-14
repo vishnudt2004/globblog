@@ -3,17 +3,10 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
-import {
-  // Atoms
-  FAIcon,
-  CircleButton,
-
-  // Hooks
-  useMediaQuery,
-
-  // Utilities
-  setOverflowY,
-} from "../../config/exports";
+import FAIcon from "@/components/atoms/FAIcon";
+import { CircleButton } from "@/components/atoms/Button";
+import useMediaQuery from "@/hooks/useMediaQuery";
+import { setOverflowY } from "@/utils/cssUtils";
 
 // prettier-ignore
 const Section_sc = styled.section`
@@ -148,7 +141,7 @@ function Navbar({
   const { primaryMenus, secondaryMenus } = smallerScreens;
 
   const breakpointMatched = useMediaQuery(
-    `(max-width: ${mutationBreakpoint}px)`
+    `(max-width: ${mutationBreakpoint}px)`,
   );
 
   const [navVisible, setNavVisible] = useState(false);

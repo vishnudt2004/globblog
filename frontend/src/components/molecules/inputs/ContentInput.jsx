@@ -1,13 +1,6 @@
-import {
-  // Atoms
-  ReactQuill_mod,
-
-  // Molecules
-  CheckButton,
-
-  // Hooks
-  useLocalStorage,
-} from "../../../config/exports";
+import ReactQuill_mod from "@/components/atoms/ReactQuill_mod";
+import CheckButton from "@/components/molecules/CheckButton";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 const colors = [
   "#000000",
@@ -107,7 +100,7 @@ const modules = {
 function ContentInput(attr) {
   const [autoExpandEditor, setAutoExpandEditor] = useLocalStorage(
     "auto_expand_editor",
-    false
+    false,
   );
 
   return (

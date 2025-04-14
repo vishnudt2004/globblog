@@ -1,16 +1,9 @@
 // Node module Imports
 import { useEffect, useState } from "react";
 
-import {
-  // Organisms
-  UserVerification,
-
-  // Contexts
-  usePreLoader,
-
-  // APIs
-  blogApis,
-} from "../../../config/exports";
+import UserVerification from "@/components/organisms/UserVerification";
+import usePreLoader from "@/contexts/PreLoaderContext";
+import blogApis from "@/apis/blogApis";
 
 function DeleteBlogAction_enhancer(Component, blogId, setResult) {
   const Component_enhanced = (props) => {

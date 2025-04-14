@@ -9,31 +9,20 @@ import {
 } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { CircleButton } from "@/components/atoms/Button";
+import FAIcon from "@/components/atoms/FAIcon";
+import { PreLoaderMini } from "@/components/atoms/PreLoader";
+import GeneralPlaceholders from "@/components/molecules/GeneralPlaceholders";
+import LoadMoreData from "@/components/molecules/LoadMoreData";
 import {
-  // Atoms
-  CircleButton,
-  FAIcon,
-  PreLoaderMini,
-
-  // Molecules
-  GeneralPlaceholders,
-  LoadMoreData,
   NoResultsFoundPlaceholder,
   NoMoreResultsPlaceholder,
-
-  // Organisms
-  BlogList,
-  ResultPage,
-
-  // Templates
-  DynamicLayout_Tabs$TwoColumns,
-
-  // APIs
-  blogApis,
-
-  // Redux - reducers
-  blogReducers,
-} from "../../config/exports";
+} from "@/components/molecules/Placeholders";
+import BlogList from "@/components/organisms/BlogList";
+import ResultPage from "@/components/organisms/ResultPage";
+import { DynamicLayout_Tabs$TwoColumns } from "@/components/templates/DynamicLayouts";
+import blogApis from "@/apis/blogApis";
+import { blogReducers } from "@/states/slices/blogSlice";
 
 function TabLabel_internal({ children, onRefresh }) {
   const [refresh, setRefresh] = useState(false);
@@ -78,7 +67,7 @@ const LatestBlogs_internal = forwardRef(function ({ setResult }, ref) {
   const dispatch = useDispatch();
 
   const { blogs, currentPage, totalPages } = useSelector(
-    (state) => state.blog?.latest
+    (state) => state.blog?.latest,
   );
 
   const [blogsResult, setBlogsResult] = useState({
@@ -121,7 +110,7 @@ const LatestBlogs_internal = forwardRef(function ({ setResult }, ref) {
               totalPages: apiResult?.totalPages ?? prevState.totalPages,
               currentPage: page ?? prevState.currentPage,
             },
-          })
+          }),
         );
       });
 
@@ -133,7 +122,7 @@ const LatestBlogs_internal = forwardRef(function ({ setResult }, ref) {
         noResult: apiResult?.blogsCount === 0,
       }));
     },
-    [dispatch, setResult]
+    [dispatch, setResult],
   );
 
   const fetchNextPage = useCallback(async () => {
@@ -214,7 +203,7 @@ const TrendingBlogs_internal = forwardRef(function ({ setResult }, ref) {
         noResult: apiResult?.blogsCount === 0,
       }));
     },
-    [setResult]
+    [setResult],
   );
 
   const fetchNextPage = useCallback(async () => {

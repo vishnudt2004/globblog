@@ -1,10 +1,7 @@
 // Node module Imports
 import styled, { css } from "styled-components";
 
-import {
-  // Utilities
-  colorMix,
-} from "../../config/exports";
+import { colorMix } from "@/utils/cssUtils";
 
 const ButtonTag_sc = styled.button`
   display: flex;
@@ -32,16 +29,15 @@ const ButtonTag_sc = styled.button`
     order: ${({ $iconPosition }) => ($iconPosition === "left" ? 0 : 1)};
   }
 
-  ${({ $style }) =>
-    css`
-      ${$style}
-    `}
+  ${({ $style }) => css`
+    ${$style}
+  `}
 
   &:hover {
     ${css`
       ${({ $hoverStyle }) =>
         Object.entries($hoverStyle).map(
-          ([property, value]) => `${property}: ${value} !important;`
+          ([property, value]) => `${property}: ${value} !important;`,
         )}
     `}
   }

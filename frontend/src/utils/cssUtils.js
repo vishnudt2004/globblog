@@ -4,7 +4,7 @@ const setOverflowY = (condition) => {
 
 const getCssVarValue = (
   variableName,
-  from = "body" // body | :root | root
+  from = "body", // body | :root | root
 ) => {
   const element = from === "body" ? document.body : document.documentElement;
   const computedStyle = window.getComputedStyle(element);

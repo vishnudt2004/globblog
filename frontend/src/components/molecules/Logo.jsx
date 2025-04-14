@@ -1,10 +1,7 @@
 // Node module Imports
 import styled from "styled-components";
 
-import {
-  // Atoms
-  FAIcon,
-} from "../../config/exports";
+import FAIcon from "@/components/atoms/FAIcon";
 
 const Div_sc = styled.div`
   text-wrap: nowrap;

@@ -3,22 +3,15 @@ import { useState } from "react";
 import styled from "styled-components";
 
 // Configuration Imports
-import config from "../../../config/config";
+import config from "@/config/config";
 
-import {
-  // Atoms
-  Anchor,
-  Button,
-  FAIcon,
-  Input,
-  Modal,
-
-  // Molecules
-  GeneralPlaceholders,
-
-  // Contexts
-  useMessage,
-} from "../../../config/exports";
+import Anchor from "@/components/atoms/Anchor";
+import Button from "@/components/atoms/Button";
+import FAIcon from "@/components/atoms/FAIcon";
+import Input from "@/components/atoms/Input";
+import Modal from "@/components/atoms/Modal";
+import GeneralPlaceholders from "@/components/molecules/GeneralPlaceholders";
+import { useMessage } from "@/contexts/MessageContext";
 
 const {
   PREDEFINED_PLATFORMS,
@@ -26,7 +19,7 @@ const {
 } = config.UI_ELEMENTS;
 
 const predefinedPlatforms = PREDEFINED_PLATFORMS.map(
-  ({ platform }) => platform
+  ({ platform }) => platform,
 );
 
 const Div_sc = styled.div`
@@ -120,7 +113,7 @@ const SocialMediaProfilesInput = ({
 
   const validateSocialMediaProfiles = (url) =>
     /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/.test(
-      url
+      url,
     );
 
   const handleAddProfile = () => {
@@ -141,7 +134,7 @@ const SocialMediaProfilesInput = ({
       } else {
         showMessage(
           "error",
-          `You can only add up to ${maxProfiles} platforms.`
+          `You can only add up to ${maxProfiles} platforms.`,
         );
       }
     } else {
@@ -207,7 +200,7 @@ const SocialMediaProfilesInput = ({
       <ol>
         {Object.entries(value).map(([platform, link], index) => {
           const pf = predefinedPlatforms.find(
-            (pf) => pf.toLowerCase() === platform.toLowerCase()
+            (pf) => pf.toLowerCase() === platform.toLowerCase(),
           );
 
           return (

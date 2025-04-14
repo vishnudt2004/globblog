@@ -1,11 +1,8 @@
 // Node module Imports
 import { useNavigate } from "react-router-dom";
 
-import {
-  // Atoms
-  Button,
-  FAIcon,
-} from "../../config/exports";
+import Button from "@/components/atoms/Button";
+import FAIcon from "@/components/atoms/FAIcon";
 
 function PageRedirectButton({
   children,

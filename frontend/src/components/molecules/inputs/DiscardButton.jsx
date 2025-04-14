@@ -1,14 +1,11 @@
 // Node module Imports
 import { useNavigate } from "react-router-dom";
 
-import {
-  // Molecules
-  SubmitButton,
-} from "../../../config/exports";
+import SubmitButton from "@/components/molecules/inputs/SubmitButton";
 
 function DiscardButton_enhancer(
   Component,
-  { navigation = "/", buttonText = "DISCARD EDIT", icon = "ban", style = {} }
+  { navigation = "/", buttonText = "DISCARD EDIT", icon = "ban", style = {} },
 ) {
   const navigate = useNavigate();
 

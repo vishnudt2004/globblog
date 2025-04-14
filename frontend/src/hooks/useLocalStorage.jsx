@@ -24,7 +24,7 @@ function useLocalStorage(key, initialValue) {
         console.error("Error setting data to local storage: ", error);
       }
     },
-    [key, storedValue]
+    [key, storedValue],
   );
 
   const removeValue = useCallback(() => {

@@ -2,14 +2,14 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import ReactQuill, { Quill } from "react-quill";
-import blotFormatter from "quill-blot-formatter-mobile";
+import BlotFormatter from "quill-blot-formatter-mobile/dist/BlotFormatter"; // CJS module – default import not supported in ESM, so using direct path
 import "react-quill/dist/quill.snow.css";
 
 const BaseImageFormat = Quill.import("formats/image");
 const ImageFormatAttributesList = ["alt", "height", "width", "style"];
 
 // Custom Modules
-Quill.register("modules/blotFormatter", blotFormatter);
+Quill.register("modules/blotFormatter", BlotFormatter);
 
 // to fix 'persistence of image modifications after publish a post'
 // https://github.com/kensnyder/quill-image-resize-module/issues/10#issuecomment-317747389
@@ -151,7 +151,9 @@ const Div_sc = styled.div`
       font-size: var(--editor-font-size);
       background: var(--editor-bg-color);
       border-radius: 0 0 var(--border-radius) var(--border-radius);
-      transition: background 0.4s, box-shadow 0.4s;
+      transition:
+        background 0.4s,
+        box-shadow 0.4s;
 
       & > p {
         hyphens: none;
