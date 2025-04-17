@@ -2,9 +2,13 @@
 
 All notable changes to this project will be documented in this file (Frontend).
 
-## [1.0.2] - 2025-04-14
+## [1.0.2] - 2025-04-17
 
-### Changed
+### Fixed (April 17)
+
+- Fixed issue with orphan blog placeholder not showing in BlogCard and BlogViewer. Now it properly appears when either author is null or orphan is true.
+
+### Changed (April 14)
 
 - New Feature & Environment Variable
   - Added `ErrorBoundary` component to handle errors individually (detailed errors in development & user-friendly errors in production). Currently used for each route/page in `App.jsx`

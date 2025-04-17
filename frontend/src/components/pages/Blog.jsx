@@ -53,7 +53,7 @@ function Blog() {
 
       showPreLoader(false);
     },
-    [showPreLoader, blogId],
+    [showPreLoader, blogId]
   );
 
   const fetchReadCount = useCallback(async () => {
@@ -67,7 +67,7 @@ function Blog() {
       setCookie(
         `read_client_${blogId}`,
         true,
-        durationToMs(readCountExpireTime),
+        durationToMs(readCountExpireTime)
       );
       fetchBlog({ partialUpdate: "readsCount" });
     }

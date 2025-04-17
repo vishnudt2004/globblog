@@ -121,7 +121,7 @@ const Div_sc = styled.div`
           width: 100% !important;
           height: 230px;
         }
-      `,
+      `
     )}/* @media screen and (max-width: 480px) {
     .published-info {
       flex-direction: column-reverse;
@@ -195,7 +195,9 @@ function BlogCard({
               />
             </span>
           )}
-          {withUserCard && orphan && <OrphanBlogPlaceholder />}
+          {withUserCard && (author === null || orphan) && (
+            <OrphanBlogPlaceholder />
+          )}
         </div>
 
         <div className="blog-info">

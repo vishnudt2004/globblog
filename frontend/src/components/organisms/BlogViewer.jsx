@@ -101,7 +101,7 @@ function OwnerControls_internal({ owner, setDeletionResult }) {
   const DeleteButton_with_DeleteBlogAction = DeleteBlogAction_enhancer(
     DeleteButton,
     blogId,
-    setDeletionResult,
+    setDeletionResult
   );
 
   return (
@@ -202,7 +202,7 @@ function BlogViewer({ blog, owner, onReadComplete }) {
       undefined, // default options: { wordsPerMinute: 250, requiredReadingTimePercent: 80, requiredScrollPercent: 80 }
       (readCompletionStatus) => {
         onReadComplete(readCompletionStatus);
-      },
+      }
     );
 
     tracker.startTracking();
@@ -240,9 +240,10 @@ function BlogViewer({ blog, owner, onReadComplete }) {
           )}
 
           <VisibilityControl
-            visible={!blog?.orphan}
+            visible={blog?.author !== null && !blog?.orphan}
             fallback={<OrphanBlogPlaceholder />}
           >
+            {console.log(blog)}
             <UserCardMini
               size="50px"
               name={blog?.author?.profile.name}
@@ -289,7 +290,7 @@ function BlogViewer({ blog, owner, onReadComplete }) {
             {blog.tags &&
               blog.tags.map((tag) => {
                 const icon = categories.find(
-                  (cat) => cat.category.toLowerCase() === tag.toLowerCase(),
+                  (cat) => cat.category.toLowerCase() === tag.toLowerCase()
                 )?.icon;
 
                 return (
