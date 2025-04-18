@@ -241,6 +241,6 @@ For inquiries regarding usage, please refer to the [Contact](#-contacts) section
 
 - 🌐 Portfolio: [portfolio-vishnud](https://portfolio-vishnud.vercel.app/)
 - 💻 GitHub: [vishnudt2004](https://github.com/vishnudt2004)
-- 🔗 LinkedIn: [vishnu-d](https://www.linkedin.com/in/vishnu-d-28b7a52b1/)
+- 🔗 LinkedIn: [vishnu-dt](https://www.linkedin.com/in/vishnu-dt)
 - 🧠 LeetCode: [vishnud2004](https://leetcode.com/vishnud2004/)
 - 📧 Email: [vishnu.d.t.2004@gmail.com](mailto:vishnu.d.t.2004@gmail.com)
