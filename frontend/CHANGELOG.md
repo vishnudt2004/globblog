@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file (Frontend).
 
+## [1.0.2] - 2026-03-19
+
+### Security
+
+- Resolved available frontend vulnerabilities via `npm audit fix`.
+- Acknowledged unresolved vulnerabilities in `esbuild`/`vite` (GHSA-67mh-4wv8-2f99)
+  and `react-quill`/`quill` (GHSA-4943-9vgg-gr5r).
+  switch to community package `react-quill-new`.
+
 ## [1.0.2] - 2025-04-17
 
 ### Fixed (April 17)

@@ -30,7 +30,7 @@ const htmlReplacements = {
 
 const attachments = [
   {
-    filename: "newspaper.png",
+    filename: "logo-icon",
     path: `${assetsPath}/icons/newspaper.png`,
     cid: "LOGO_IMAGE", // Same CID as in the email template
   },
@@ -39,7 +39,7 @@ const attachments = [
 const sendOTP = async (email, profileName, otp) => {
   const template = await loadTextFile(emailTemplateFile);
   const message = await loadTextFile(
-    `${emailTemplatePath}/messages/otp-verification.html`
+    `${emailTemplatePath}/messages/otp-verification.html`,
   );
 
   const replacements = {
@@ -58,7 +58,7 @@ const sendOTP = async (email, profileName, otp) => {
 
   const subject = "OTP Verification";
 
-  await sendEmail(undefined, {
+  await sendEmail({
     to: email,
     subject,
     html,

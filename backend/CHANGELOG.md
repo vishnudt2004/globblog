@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file (Backend).
 
+## [1.0.2] - 2026-03-19
+
+### Security
+
+- Resolved vulnerabilities via `npm audit fix`.
+- Resolved 2 remaining high-severity vulnerabilities in `tar` (GHSA-34x7-hfp2-rc4v et al.)
+  transitively via `bcrypt > @mapbox/node-pre-gyp` — forced `tar@^7.5.11` via
+  `package.json` overrides as a manual fix.
+  Remove override once `bcrypt` updates `@mapbox/node-pre-gyp` past `1.0.11`.
+
+### Known Limitations
+
+- Nodemailer (SMTP) retained for email delivery. Note: SMTP may not function
+  on Render's hosting environment; acceptable for portfolio/demo use.
+  switch port from 465 to 587.
+
 ## [1.0.1] - 2025-04-14
 
 ### Changed

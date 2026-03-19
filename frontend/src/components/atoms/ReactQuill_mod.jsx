@@ -1,9 +1,9 @@
 // Node module Imports
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
-import ReactQuill, { Quill } from "react-quill";
+import ReactQuill, { Quill } from "react-quill-new";
 import BlotFormatter from "quill-blot-formatter-mobile/dist/BlotFormatter"; // CJS module – default import not supported in ESM, so using direct path
-import "react-quill/dist/quill.snow.css";
+import "react-quill-new/dist/quill.snow.css";
 
 const BaseImageFormat = Quill.import("formats/image");
 const ImageFormatAttributesList = ["alt", "height", "width", "style"];

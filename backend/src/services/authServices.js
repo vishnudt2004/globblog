@@ -40,7 +40,7 @@ const htmlReplacements = {
 
 const attachments = [
   {
-    filename: "newspaper.png",
+    filename: "logo-icon",
     path: `${assetsPath}/icons/newspaper.png`,
     cid: "LOGO_IMAGE", // Same CID as in the email template
   },
@@ -116,7 +116,7 @@ const generateUsernameForGoogleUser = async (email) => {
 const sendEmailVerificationLink = async (email, profileName, link) => {
   const template = await loadTextFile(emailTemplateFile);
   const message = await loadTextFile(
-    `${emailTemplatePath}/messages/email-verification.html`
+    `${emailTemplatePath}/messages/email-verification.html`,
   );
 
   const replacements = {
@@ -135,7 +135,7 @@ const sendEmailVerificationLink = async (email, profileName, link) => {
 
   const subject = "Email Verification";
 
-  await sendEmail(undefined, {
+  await sendEmail({
     to: email,
     subject,
     html,
@@ -146,7 +146,7 @@ const sendEmailVerificationLink = async (email, profileName, link) => {
 const sendPWResetLink = async (email, profileName, link) => {
   const template = await loadTextFile(emailTemplateFile);
   const message = await loadTextFile(
-    `${emailTemplatePath}/messages/password-reset.html`
+    `${emailTemplatePath}/messages/password-reset.html`,
   );
 
   const replacements = {
@@ -165,7 +165,7 @@ const sendPWResetLink = async (email, profileName, link) => {
 
   const subject = "Password Reset";
 
-  await sendEmail(undefined, {
+  await sendEmail({
     to: email,
     subject,
     html,

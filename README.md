@@ -151,26 +151,26 @@ Globblog is a full-featured blog application built with the MERN stack, followin
 
    ```sh
    VITE_ENV=development/production
-   VITE_CLIENT_URL=your_client_url
-   VITE_SERVER_URL=your_server_url
+   VITE_CLIENT_URL=client_url
+   VITE_SERVER_URL=server_url
    ```
 
    Create a `.env` file in the backend directory (`backend/src/config/.env`) and add:
 
    ```sh
    NODE_ENV=development/production
-   PORT=your_port_number
+   PORT=port_number
    CLIENT_URL=http://127.0.0.1:5173
    SERVER_URL=http://127.0.0.1:8000
-   DB_CONNECTION=your_mongodb_url
-   SMTP_HOST=your_smtp_host
-   SMTP_PORT=your_smtp_port
-   SMTP_USER=your_smtp_username
-   SMTP_PASS=your_smtp_password
-   SMTP_FROM=your_email_address
-   JWT_SECRET=your_jwt_secret
-   GOOGLE_CLIENT_ID=your_google_client_id
-   GOOGLE_CLIENT_SECRET=your_google_client_secret
+   DB_CONNECTION=mongodb_url
+   SMTP_HOST=smtp_host
+   SMTP_PORT=smtp_port
+   SMTP_USER=smtp_username
+   SMTP_PASS=smtp_password
+   SMTP_FROM=email_address
+   JWT_SECRET=jwt_secret
+   GOOGLE_CLIENT_ID=google_client_id
+   GOOGLE_CLIENT_SECRET=google_client_secret
    INITIAL_SEED=true/false
    INITIAL_SEED_ACTION=WipeUsers/WipeBlogs/SeedUsers/SeedBlogs/WipeAndSeedAll
    ```
@@ -178,7 +178,6 @@ Globblog is a full-featured blog application built with the MERN stack, followin
 5. Optional – HTTPS Setup for Local Development (This setup helps test features that require a secure context (e.g., Google OAuth 2.0))
 
 - Frontend
-
   - Update any URLs (e.g., `VITE_CLIENT_URL`, `SERVER_URL`) in both `.env` and `config.js` to start with `https://` instead of `http://`.
   - In vite.config.js, uncomment the following in the server config:
     ```js
@@ -189,7 +188,6 @@ Globblog is a full-featured blog application built with the MERN stack, followin
     ```
 
 - Backend:
-
   - Update all URLs (e.g., `CLIENT_URL`, `SERVER_URL`) in both `.env` and `config.js` to start with `https://` instead of `http://`.
   - In `server.js`, enable the local HTTPS server:
     ```js

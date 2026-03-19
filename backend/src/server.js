@@ -17,7 +17,7 @@ const {
   breakLine,
   clearConsole,
 } = require("./utils/consoleUtils");
-const devHttpsServer = require("./utils/dev-https-server");
+// const devHttpsServer = require("./utils/dev-https-server"); // Uncomment this line to use HTTPS in development mode
 const {
   uncaughtException,
   unhandledRejection,

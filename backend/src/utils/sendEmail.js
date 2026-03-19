@@ -2,6 +2,7 @@
 const nm = require("nodemailer");
 
 const sendEmail = async (
+  mailOptions = {},
   transporterOptions = {
     host: process.env.SMTP_HOST,
     port: process.env.SMTP_PORT,
@@ -11,7 +12,6 @@ const sendEmail = async (
       pass: process.env.SMTP_PASS,
     },
   },
-  mailOptions = {}
 ) => {
   const mailOptions_default = {
     from: process.env.SMTP_FROM,
